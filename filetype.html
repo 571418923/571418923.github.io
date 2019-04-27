@@ -1,0 +1,268 @@
+<script type="text/javascript" src="filetype_data/main.js"></script>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <link rel="stylesheet" type="text/css" href="filetype_data/interface.css">
+  <link href="filetype_data/css.css" rel="stylesheet">
+</head>
+
+<body style="
+	background-image: url(images/landscape.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;">
+
+<div class="container">
+	<div class="column left" style="background-color:#313131;">
+		<div>Interactive Version 0.1</div>
+		<div>By Savestate</div>
+		<br/>
+		<div id="lblPoints" style="width: 200px;">Points: 4</div>
+		<br/>
+		<div id="lblSelections" style="width: 300px">Selections:</div>
+	</div>
+	
+	<div class="column middle" style="background-color:#4a4a4a;">
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'Images')">Images</button>
+			<button class="tablinks" onclick="openTab(event, 'Programs')">Programs</button>
+			<button class="tablinks" onclick="openTab(event, 'Art')">Art</button>
+			<button class="tablinks" onclick="openTab(event, 'Wonder')">Wonder</button>
+		</div>
+		
+		<div id="Intro" class="tabcontent" style="display: block">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 60%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button class="smolButton" style="font-weight: bold">A Strange Discovery</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<p>You happen across an unusual silver flash drive, simply lying on the street. Curiousity overrides caution, and you check the contents. It holds a series of strange, small programs, with rather minimalistic explanations; only a few sentences, each. Supposedly, each works by converting ordinary files into a new, anomalous filetype. It is then that the flash drive starts to simply dissolve. In the short time before it becomes completely nonfunctional, you are able to extract only four of these unusual programs.</p>
+							<br/>
+							<p>Though clearly supernatural, the programs you retrieve are still programs. They can be copied freely, transferred between computers systems, used by others, and integrated into other software. They cannot, however, be modified, nor can anything be learned from observing their inner works; each converter is effectively a black box.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="Images" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickOne" class="smolButton" style="color: red; font-weight: bold">.JIF</button></td>
+									<td><button class="smolButton" onClick="pick(0)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/jif.png" alt=".jif" align="center">
+							<p>Accepts: Any image file.</p>
+							<p>Function: Converts the source into a ten second audioless video, displaying the moments before and after the moment of the image. May function oddly on unreal images.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickTwo" class="smolButton" style="color: red; font-weight: bold">.PPG</button></td>
+									<td><button class="smolButton" onClick="pick(1)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/ppg.png" alt=".ppg" align="center">
+							<p>Accepts: Any image file.</p>
+							<p>Function: Converts the source into an infinite-resolution replica. Automatically handles conflicts with programs that measure based on set numbers of pixels. At high zoom, may adjust image to be as if it was taken at the zoomed-in location.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickThree" class="smolButton" style="color: red; font-weight: bold">.PAN</button></td>
+									<td><button class="smolButton" onClick="pick(2)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/pan.png" alt=".pan" align="center">
+							<p>Accepts: Any image file.</p>
+							<p>Function: Converts the source into a panorama. User can rotate view 360 degrees in every direction, observing the are around where the image was originally taken. May function oddly on unreal images.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="Programs" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickFour" class="smolButton" style="color: red; font-weight: bold">.RUN</button></td>
+									<td><button class="smolButton" onClick="pick(3)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/run.png" alt=".run" align="center">
+							<p>Accepts: Any source code.</p>
+							<p>Function: Converts the source into a compiled program that will, at minimum, run, and on any computer system. Automatically resolves typos, logic errors, inappropriate constants, and similar based on the intent of the program's original writer(s).</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickFive" class="smolButton" style="color: red; font-weight: bold">.FST</button></td>
+									<td><button class="smolButton" onClick="pick(4)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/fst.png" alt=".fst" align="center">
+							<p>Accepts: Any compiled program or .exe file.</p>
+							<p>Function: Converts the source into a superior format, capable of running on any computer. Improves run speed to varying degrees. Games will always run at maximum FPS, and never run out of memory. Purely practical programs will run a maximum of 100x as quickly.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickSix" class="smolButton" style="color: red; font-weight: bold">.99Z</button></td>
+									<td><button class="smolButton" onClick="pick(5)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/99z.png" alt=".99z" align="center">
+							<p>Accepts: Any file or folder.</p>
+							<p>Function: Converts the source into a losslessly compressed file, which will take up precisely 99 kilobytes of memory.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="Art" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickSeven" class="smolButton" style="color: red; font-weight: bold">.FNT</button></td>
+									<td><button class="smolButton" onClick="pick(6)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/fnt.png" alt=".fnt" align="center">
+							<p>Accepts: Any imagined sound or image.</p>
+							<p>Function: Generates a digital anchor to the original fantasy. When displayed by any means, sapient beings will perceive the original imagined idea.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickEight" class="smolButton" style="color: red; font-weight: bold">.MPX</button></td>
+									<td><button class="smolButton" onClick="pick(7)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/mpx.png" alt=".mpx" align="center">
+							<p>Accepts: Any audio file.</p>
+							<p>Function: Converts the source into a perfect-quality replica. Physical limitations of audio emitters are disregarded when playing this file. Individual sound sources from the original recording can be dialed up or down in volume and clarity.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickNine" class="smolButton" style="color: red; font-weight: bold">.CYO</button></td>
+									<td><button class="smolButton" onClick="pick(8)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/cyo.png" alt=".cyo" align="center">
+							<p>Accepts: Any image file, or any text file.</p>
+							<p>Function: Adds text to image files, providing story elements in line with the user's vague desires. Adds imaging and illustration to text files, enhancing them in line the user's vague desires.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="Wonder" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickTen" class="smolButton" style="color: red; font-weight: bold">.LCS</button></td>
+									<td><button class="smolButton" onClick="pick(9)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/lcs.png" alt=".lcs" align="center">
+							<p>Accepts: Any video file.</p>
+							<p>Function: Converts the source into an "as directed by George Lucas" version. One time only, can reset this to any other director. This reset propogates through all copies of the program.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickEleven" class="smolButton" style="color: red; font-weight: bold">.RWL</button></td>
+									<td><button class="smolButton" onClick="pick(10)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/rwl.png" alt=".rwl" align="center">
+							<p>Accepts: Any text file.</p>
+							<p>Function: Converts the source into an "as written by JK Rowling" version. One time only, can reset this to any other published author. This reset propogates through all copies of the program.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv">
+							<table style="width: 100%;" align="right">
+								<tr>
+									<td><button id="pickTwelve" class="smolButton" style="color: red; font-weight: bold">.WAL</button></td>
+									<td><button class="smolButton" onClick="pick(11)">[Pick]</button></td>
+								</tr>
+							</table>
+							<br></br>
+							<hr></hr>
+							<img src="images/wal.png" alt=".wal" align="center">
+							<p>Accepts: Any audio or video file.</p>
+							<p>Function: Converts the source into an "as played by Weird Al" version. One time only, can reset this to any other musician. This reset propogates through all copies of the program.</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+		
+	</div>
+</div>
+
+
+ 
+</body></html>
