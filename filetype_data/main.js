@@ -105,64 +105,64 @@ function getSelectionsText() {
 // Colors the selections so you know what you have
 function color() {
 	if (arrSelections[0] == 1)
-		document.getElementById("pickOne").style.color = "green";
+		document.getElementById("pickOne").style.borderColor = "green";
 	else
-		document.getElementById("pickOne").style.color = "red";
+		document.getElementById("pickOne").style.borderColor = "red";
 	
 	if (arrSelections[1] == 1)
-		document.getElementById("pickTwo").style.color = "green";
+		document.getElementById("pickTwo").style.borderColor = "green";
 	else
-		document.getElementById("pickTwo").style.color = "red";
+		document.getElementById("pickTwo").style.borderColor = "red";
 	
 	if (arrSelections[2] == 1)
-		document.getElementById("pickThree").style.color = "green";
+		document.getElementById("pickThree").style.borderColor = "green";
 	else
-		document.getElementById("pickThree").style.color = "red";
+		document.getElementById("pickThree").style.borderColor = "red";
 	
 	if (arrSelections[3] == 1)
-		document.getElementById("pickFour").style.color = "green";
+		document.getElementById("pickFour").style.borderColor = "green";
 	else
-		document.getElementById("pickFour").style.color = "red";
+		document.getElementById("pickFour").style.borderColor = "red";
 	
 	if (arrSelections[4] == 1)
-		document.getElementById("pickFive").style.color = "green";
+		document.getElementById("pickFive").style.borderColor = "green";
 	else
-		document.getElementById("pickFive").style.color = "red";
+		document.getElementById("pickFive").style.borderColor = "red";
 	
 	if (arrSelections[5] == 1)
-		document.getElementById("pickSix").style.color = "green";
+		document.getElementById("pickSix").style.borderColor = "green";
 	else
-		document.getElementById("pickSix").style.color = "red";
+		document.getElementById("pickSix").style.borderColor = "red";
 	
 	if (arrSelections[6] == 1)
-		document.getElementById("pickSeven").style.color = "green";
+		document.getElementById("pickSeven").style.borderColor = "green";
 	else
-		document.getElementById("pickSeven").style.color = "red";
+		document.getElementById("pickSeven").style.borderColor = "red";
 	
 	if (arrSelections[7] == 1)
-		document.getElementById("pickEight").style.color = "green";
+		document.getElementById("pickEight").style.borderColor = "green";
 	else
-		document.getElementById("pickEight").style.color = "red";
+		document.getElementById("pickEight").style.borderColor = "red";
 	
 	if (arrSelections[8] == 1)
-		document.getElementById("pickNine").style.color = "green";
+		document.getElementById("pickNine").style.borderColor = "green";
 	else
-		document.getElementById("pickNine").style.color = "red";
+		document.getElementById("pickNine").style.borderColor = "red";
 	
 	if (arrSelections[9] == 1)
-		document.getElementById("pickTen").style.color = "green";
+		document.getElementById("pickTen").style.borderColor = "green";
 	else
-		document.getElementById("pickTen").style.color = "red";
+		document.getElementById("pickTen").style.borderColor = "red";
 	
 	if (arrSelections[10] == 1)
-		document.getElementById("pickEleven").style.color = "green";
+		document.getElementById("pickEleven").style.borderColor = "green";
 	else
-		document.getElementById("pickEleven").style.color = "red";
+		document.getElementById("pickEleven").style.borderColor = "red";
 	
 	if (arrSelections[11] == 1)
-		document.getElementById("pickTwelve").style.color = "green";
+		document.getElementById("pickTwelve").style.borderColor = "green";
 	else
-		document.getElementById("pickTwelve").style.color = "red";
+		document.getElementById("pickTwelve").style.borderColor = "red";
 }
 
 
