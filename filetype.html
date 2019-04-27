@@ -14,7 +14,7 @@
 
 <div class="container">
 	<div class="column left" style="background-color:#313131;">
-		<div>Interactive Version 0.1</div>
+		<div>Interactive Version 0.2</div>
 		<div>By Savestate</div>
 		<br/>
 		<div id="lblPoints" style="width: 200px;">Points: 4</div>
@@ -35,7 +35,7 @@
 			<table style="width:90%;" align="left">
 				<tr>
 					<td style="vertical-align: top; width: 30%">
-						<div style="width: 60%;" class="stdDiv">
+						<div style="width: 60%; border-color: white" class="stdDiv">
 							<table style="width: 100%;" align="right">
 								<tr>
 									<td><button class="smolButton" style="font-weight: bold">A Strange Discovery</button></td>
@@ -55,12 +55,11 @@
 		<div id="Images" class="tabcontent">
 			<table style="width:90%;" align="left">
 				<tr>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickOne" style="width: 95%;" class="stdDiv" onClick="pick(0)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickOne" class="smolButton" style="color: red; font-weight: bold">.JIF</button></td>
-									<td><button class="smolButton" onClick="pick(0)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.JIF</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -70,12 +69,11 @@
 							<p>Function: Converts the source into a ten second audioless video, displaying the moments before and after the moment of the image. May function oddly on unreal images.</p>
 						</div>
 					</td>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickTwo" style="width: 95%;" class="stdDiv" onClick="pick(1)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickTwo" class="smolButton" style="color: red; font-weight: bold">.PPG</button></td>
-									<td><button class="smolButton" onClick="pick(1)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.PPG</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -86,11 +84,10 @@
 						</div>
 					</td>
 					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+						<div id="pickThree" style="width: 95%;" class="stdDiv" onClick="pick(2)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickThree" class="smolButton" style="color: red; font-weight: bold">.PAN</button></td>
-									<td><button class="smolButton" onClick="pick(2)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.PAN</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -107,12 +104,11 @@
 		<div id="Programs" class="tabcontent">
 			<table style="width:90%;" align="left">
 				<tr>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickFour" style="width: 95%;" class="stdDiv" onClick="pick(3)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickFour" class="smolButton" style="color: red; font-weight: bold">.RUN</button></td>
-									<td><button class="smolButton" onClick="pick(3)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.RUN</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -122,12 +118,11 @@
 							<p>Function: Converts the source into a compiled program that will, at minimum, run, and on any computer system. Automatically resolves typos, logic errors, inappropriate constants, and similar based on the intent of the program's original writer(s).</p>
 						</div>
 					</td>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickFive" style="width: 95%;" class="stdDiv" onClick="pick(4)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickFive" class="smolButton" style="color: red; font-weight: bold">.FST</button></td>
-									<td><button class="smolButton" onClick="pick(4)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.FST</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -138,11 +133,10 @@
 						</div>
 					</td>
 					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+						<div id="pickSix" style="width: 95%;" class="stdDiv" onClick="pick(5)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickSix" class="smolButton" style="color: red; font-weight: bold">.99Z</button></td>
-									<td><button class="smolButton" onClick="pick(5)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.99Z</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -159,12 +153,11 @@
 		<div id="Art" class="tabcontent">
 			<table style="width:90%;" align="left">
 				<tr>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickSeven" style="width: 95%;" class="stdDiv" onClick="pick(6)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickSeven" class="smolButton" style="color: red; font-weight: bold">.FNT</button></td>
-									<td><button class="smolButton" onClick="pick(6)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.FNT</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -174,12 +167,11 @@
 							<p>Function: Generates a digital anchor to the original fantasy. When displayed by any means, sapient beings will perceive the original imagined idea.</p>
 						</div>
 					</td>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickEight" style="width: 95%" class="stdDiv" onClick="pick(7)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickEight" class="smolButton" style="color: red; font-weight: bold">.MPX</button></td>
-									<td><button class="smolButton" onClick="pick(7)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.MPX</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -190,11 +182,10 @@
 						</div>
 					</td>
 					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+						<div id="pickNine" style="width: 95%" class="stdDiv" onClick="pick(8)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickNine" class="smolButton" style="color: red; font-weight: bold">.CYO</button></td>
-									<td><button class="smolButton" onClick="pick(8)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.CYO</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -211,12 +202,11 @@
 		<div id="Wonder" class="tabcontent">
 			<table style="width:90%;" align="left">
 				<tr>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickTen" style="width: 95%;" class="stdDiv" onClick="pick(9)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickTen" class="smolButton" style="color: red; font-weight: bold">.LCS</button></td>
-									<td><button class="smolButton" onClick="pick(9)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.LCS</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -226,12 +216,11 @@
 							<p>Function: Converts the source into an "as directed by George Lucas" version. One time only, can reset this to any other director. This reset propogates through all copies of the program.</p>
 						</div>
 					</td>
-					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div id="pickEleven" style="width: 95%;" class="stdDiv" onClick="pick(10)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickEleven" class="smolButton" style="color: red; font-weight: bold">.RWL</button></td>
-									<td><button class="smolButton" onClick="pick(10)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.RWL</p></td>
 								</tr>
 							</table>
 							<br></br>
@@ -242,11 +231,10 @@
 						</div>
 					</td>
 					<td style="vertical-align: top; width: 30%">
-						<div style="width: 95%;" class="stdDiv">
+						<div id="pickTwelve" style="width: 95%;" class="stdDiv" onClick="pick(11)">
 							<table style="width: 100%;" align="right">
 								<tr>
-									<td><button id="pickTwelve" class="smolButton" style="color: red; font-weight: bold">.WAL</button></td>
-									<td><button class="smolButton" onClick="pick(11)">[Pick]</button></td>
+									<td><p class="smolButton" style="color: white; font-weight: bold">.WAL</p></td>
 								</tr>
 							</table>
 							<br></br>

@@ -1,0 +1,159 @@
+body {
+  background-color: black;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+p {
+  color: white;
+  padding: 2;
+  margin: 2;
+}
+
+h6 {
+  color: white;
+  padding: 2;
+  margin: 2;
+  font-size: 14px;
+}
+
+td {
+  color: white;
+}
+
+div {
+  color: white;
+  font-size: 16px;
+}
+
+button.stdButton {
+  font-size: 12px;
+  background-color: #313131;
+  color: white;
+  border-radius: 2px;
+  min-width: 20%;
+  vertical-align: top;
+}
+
+button.smolButton {
+  font-size: 16px;
+  background-color: #313131;
+  color: white;
+  vertical-align: baseline;
+  
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+div.stdDiv {
+  font-size: 12px;
+  background-color: #313131;
+  color: white;
+  border-radius: 2px;
+  border-style: ridge;
+  border-width: 4px;
+  border-color: red;
+  padding: 4px;
+  min-width: 20%;
+  vertical-align: top;
+}
+
+.tab {
+    overflow: hidden;
+	border: none;
+    background-color: #4a4a4a;
+}
+
+.tab button {
+	color: white;
+    background-color: #2a2a2a;
+    float: left;
+    border: solid;
+	border-width: 1px;
+    outline: none;
+    cursor: pointer;
+	margin: 16px;
+    padding: 14px 14px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: none;
+    border-top: none;
+	height: 87%;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #313131;
+}
+
+#myBar {
+    width: 1%;
+    height: 30px;
+	color: black;
+	text-align: left;
+	line-height: 30px;
+    background-color: grey;
+}
+
+.container {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  height: 500px;
+}
+
+.aligner-item {
+    max-width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+	height: 100%;
+}
+
+.left, .right {
+    width: 20%;
+    min-width: 100px;
+	
+	border-style:outset;
+	border-radius: 2px;
+	border-color: #aaaaaa;
+	padding: 8px;
+	margin: 8px;
+}
+
+.middle {
+    width: 80%;
+    min-width: 200px;
+	
+	border-style:outset;
+	border-radius: 2px;
+	border-color: #aaaaaa;
+	padding: 8px;
+	margin: 8px;
+}
+
+
+
