@@ -51,11 +51,11 @@ var arrAdventureLossPoints = [[5, 2, 4], [5, 2, 4], [2, 1, 5]]; // Points awarde
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
+    for (var i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
+    for (var i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
@@ -66,11 +66,11 @@ function openTab(evt, tabName) {
 function setTab(tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
+    for (var i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
+    for (var i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
@@ -228,32 +228,32 @@ function getStat(stat) {
 	}
 	
 	if (stat == "might")
-	{	for (i = 0; i < arrGrowthSelections.length; i++)
-		{	if (arrGrowthSelections[i] == 2)
+	{	for (var i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] != 0)
 				total += arrMight[i];
 		}
 	}
 	if (stat == "magic")
-	{ 	for (i = 0; i < arrGrowthSelections.length; i++)
-		{	if (arrGrowthSelections[i] == 2)
+	{ 	for (var i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] != 0)
 				total += arrMagic[i];
 		}
 	}
 	if (stat == "artifice")
-	{	for (i = 0; i < arrGrowthSelections.length; i++)
-		{	if (arrGrowthSelections[i] == 2)
+	{	for (var i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] != 0)
 				total += arrArtifice[i];
 		}
 	}
 	if (stat == "allies")
-	{	for (i = 0; i < arrGrowthSelections.length; i++)
-		{	if (arrGrowthSelections[i] == 2)
+	{	for (var i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] != 0)
 				total += arrAllies[i];
 		}
 	}
 	if (stat == "fortune")
-	{	for (i = 0; i < arrGrowthSelections.length; i++)
-		{	if (arrGrowthSelections[i] == 2)
+	{	for (var i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] != 0)
 				total += arrFortune[i];
 		}
 	}
@@ -263,7 +263,7 @@ function getStat(stat) {
 
 function containsObject(obj, list) {
     var i;
-    for (i = 0; i < list.length; i++) {
+    for (var i = 0; i < list.length; i++) {
         if (list[i] === obj) {
             return true;
         }
@@ -278,7 +278,7 @@ function getPoints(category)
 	var total = 0;
 	if (category == "growth")
 	{
-		for (i = 0; i < arrGrowthSelections.length; i++)
+		for (var i = 0; i < arrGrowthSelections.length; i++)
 		{
 			if (arrGrowthSelections[i] == 1)
 			{
@@ -288,7 +288,7 @@ function getPoints(category)
 	}
 	if (category == "change")
 	{
-		for (i = 0; i < arrChangeSelections.length; i++)
+		for (var i = 0; i < arrChangeSelections.length; i++)
 		{
 			if (arrChangeSelections[i] == 1)
 			{
@@ -298,7 +298,7 @@ function getPoints(category)
 	}
 	if (category == "damage")
 	{
-		for (i = 0; i < arrDamageSelections.length; i++)
+		for (var i = 0; i < arrDamageSelections.length; i++)
 		{
 			if (arrDamageSelections[i] == 1)
 			{
@@ -324,12 +324,12 @@ function beginAdventure()
 	if (canAdventure())
 	{
 		// Checking/updating displayed cards and stored values seperately. Such a cludge.
-		for (i = 0; i < arrChoiceCards.length; i++) // Turns green cards blue, indicating they are locked in
+		for (var i = 0; i < arrChoiceCards.length; i++) // Turns green cards blue, indicating they are locked in
 		{
 			if (arrChoiceCards[i].style.borderColor == "green")
 				arrChoiceCards[i].style.borderColor = "blue"
 		}
-		for (i = 0; i < arrGrowthSelections.length; i++) // Turns growth selections into locked in
+		for (var i = 0; i < arrGrowthSelections.length; i++) // Turns growth selections into locked in
 		{
 			if (arrGrowthSelections[i] == 1)
 			{
@@ -337,7 +337,7 @@ function beginAdventure()
 				extendReport("Growth option " + arrGrowthName[i] + " successfully purchased for " + arrGrowthPrices[i] + " Growth points.");
 			}
 		}
-		for (i = 0; i < arrChangeSelections.length; i++) // Turns growth selections into locked in
+		for (var i = 0; i < arrChangeSelections.length; i++) // Turns growth selections into locked in
 		{
 			if (arrChangeSelections[i] == 1)
 			{
@@ -345,7 +345,7 @@ function beginAdventure()
 				extendReport("Change option " + arrChangeName[i] + " successfully purchased for " + arrChangePrices[i] + " Change points.");
 			}
 		}
-		for (i = 0; i < arrDamageSelections.length; i++) // Turns growth selections into locked in
+		for (var i = 0; i < arrDamageSelections.length; i++) // Turns growth selections into locked in
 		{
 			if (arrDamageSelections[i] == 1)
 			{
@@ -362,12 +362,12 @@ function beginAdventure()
 		var options = 2; // Can adjust this later, should be like 3
 		var picks = 0;
 		var choice = 0;
-		for (i = 0; i < arrAdventureOptions.length; i++)
+		for (var i = 0; i < arrAdventureOptions.length; i++)
 		{
 			if (arrAdventureOptions[i] != 2) // If it hasn't already been chosen
 				arrAdventureOptions[i] = 0;
 		}
-		for (i = 0; i < 99; i++) // Should be plenty of tries
+		for (var i = 0; i < 99; i++) // Should be plenty of tries
 		{
 			choice = (Math.floor(Math.random() * arrAdventureOptions.length))
 			if (arrAdventureOptions[choice] == 0 && picks < options)
@@ -378,7 +378,7 @@ function beginAdventure()
 		}
 		
 		// Generating informational notes about the adventures
-		for (i = 0; i < arrAdventureOptions.length; i++)
+		for (var i = 0; i < arrAdventureOptions.length; i++)
 		{
 			var label = document.getElementById(String('lblAdvInfo_' + i));
 			if ((Math.floor(20 - arrAdventureDifficulty[i] + getModifier(i)) * 5) > 0)
@@ -509,7 +509,7 @@ function initiate()
 	update();
 	extendReport("It begins.");
 	
-	for (i = 0; i < arrGrowthSelections.length; i++) // Growth option info
+	for (var i = 0; i < arrGrowthSelections.length; i++) // Growth option info
 	{
 		var label = document.getElementById(String('lblGrowInfo_' + i));
 		label.innerHTML = "Cost: " + arrGrowthPrices[i];
@@ -529,7 +529,7 @@ function initiate()
 			label.innerHTML += " +" + arrFortune[i] + " Fortune";
 	}
 	
-	for (i = 0; i < arrChangeSelections.length; i++) // Change option info
+	for (var i = 0; i < arrChangeSelections.length; i++) // Change option info
 	{
 		var label = document.getElementById(String('lblChangeInfo_' + i));
 		label.innerHTML = "Cost: " + arrChangePrices[i];
@@ -537,7 +537,7 @@ function initiate()
 			label.innerHTML += "<br> Requires " + arrChangeName[arrChangePrereq[i]];
 	}
 	
-	for (i = 0; i < arrDamageSelections.length; i++) // Damage option info
+	for (var i = 0; i < arrDamageSelections.length; i++) // Damage option info
 	{
 		var label = document.getElementById(String('lblDamageInfo_' + i));
 		label.innerHTML = "Cost: " + arrDamagePrices[i];
@@ -620,7 +620,7 @@ function modVictory(n)
 	if (n == 3)
 		victoryStat = -100;
 	
-	for (i = 0; i < arrAdventureOptions.length; i++)
+	for (var i = 0; i < arrAdventureOptions.length; i++)
 	{
 		var label = document.getElementById(String('lblAdvInfo_' + i));
 		if ((Math.floor(20 - arrAdventureDifficulty[i] + getModifier(i)) * 5) > 0)
