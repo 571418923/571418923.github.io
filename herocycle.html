@@ -13,8 +13,8 @@
     background-position: 50% 50%;">
 
 <div class="container">
-	<div class="column left" style="background-color:#313131; position:fixed">
-		<div>Interactive Version 0.1</div>
+	<div class="column left" style="position:fixed">
+		<div>Interactive Version 0.0 (Unplayable)</div>
 		<div>By Savestate</div>
 		<br/>
 		<div class="tab" id="tabButtons">
@@ -29,14 +29,14 @@
 		<div id="lblStats" style="width: 300px">Stats:</div>
 	</div>
 	
-	<div id="planningStage" class="column middle" style="background-color:#4a4a4a;">
+	<div id="planningStage" class="column middle">
 		
 		
 		<div id="Info" class="tabcontent" style="display: block">
-			<table style="width:90%;" align="left">
+			<table style="width:100%;" align="left">
 				<tr>
 					<td style="vertical-align: top; width: 30%">
-						<div style="width: 90%; border-color: white" class="stdDiv">
+						<div style="width: 95%; border-color: white" class="stdDiv">
 							<p class="smolTitle">Intro</p>
 							<hr></hr>
 							<p>In a time of great peril, the people of another world summon you to act as their saviour. Guided by the currents of fate, strengthened by ancient powers, you are to become ever greater, and yet that same fate will inevitably draw new threats to you and leave you scarred irrevocably. The cycle of the hero's journey will repeat, over and over again, until you break the world or it breaks you.</p>
@@ -45,7 +45,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width: 90%; border-color: white" class="stdDiv">
+						<div style="width: 95%; border-color: white" class="stdDiv">
 							<p class="smolTitle">Help</p>
 							<hr></hr>
 							<p>This CYOA is primarily divided into two stages: the Planning stage and the Adventure stage.</p>
@@ -53,7 +53,7 @@
 							<p>In order to end the stage, you must be at or below your Growth point limit, exactly at your Change point limit, and at or above your Damage point limit- you can always take more drawbacks, after all.</p>
 							<p>Once ready, the Adventure button will light up, allowing you to switch to the Adventure stage. Your selections will be locked in, and a set of potential adventures will be made available. After choosing an adventure, and having your victory determined, you will receive a new set of points and be moved back to the Planning stage.</p>
 							<p>This cycle will repeat until any Stat reaches a total of 10 and triggers an End. Whether this is a Good or Bad end depends on the particular Stat, so you may wish to be careful!</p>
-							<p>Note now that while Stats are used to determine success on Adventures and the End you receive, but the text of each option is a better descriptor of their actual effects.</p>
+							<p>Note now that while Stats are used to determine success on Adventures and the End you receive, the text of each option is a better descriptor of their actual effects.</p>
 						</div>
 					</td>
 				</tr>
@@ -102,36 +102,152 @@
 		</div>
 		
 		<div id="Growth" class="tabcontent">
-			<table style="width:90%;" align="left">
+			<table style="width:100%;" align="left">
 				<tr>
-					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
 						<div style="width: 95%;" class="stdDiv" onClick="pick(0, 'growth', this)">
-							<p class="smolTitle">Growth One</p>
+							<p class="smolTitle">Fast</p>
 							<hr></hr>
 							<img src="images/placeholder.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
 							<p id="lblGrowInfo_0" class="smolTitle"></p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+							<p>You are extremely fast, capable of acting at up to 60x normal speed. This is entirely selective; you may decide to heal at an enhanced rate while moving and thinking at normal speeds. Negative or unwanted processes, including aging, the progression of biological needs like hunger and breath, the accumulation of stress and boredom, and the progression of poisons and curses can be forced to progress in realtime while you maintain maximum acceleration in other areas, though not slowed beyond this level.</p>
+							<p>You can diminish the effects and/or consequences of air and water resistance, frictional heat buildup, momentum transfer, relativity, the speed of light, the speed of sound, and the like up to your full acceleration factor, avoiding the standard flaws of rapid movement and allowing you to pull off such feats as carrying a glass of liquid full to the brim at 60 miles an hour without spilling a drop, even when you stop on a dime. Any projectile you launch while accelerated may maintain as much of this effect as you desire, for up to three seconds.</p>
+							<p>Though this power cannot directly increase the potency of any blow you inflict, nor directly weaken enemy attacks on you, it will never diminish or worsen them.</p>
 						</div>
 					</td>
-					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
 						<div style="width: 95%;" class="stdDiv" onClick="pick(1, 'growth', this)">
-							<p class="smolTitle">Growth Two</p>
+							<p class="smolTitle">Faster</p>
 							<hr></hr>
 							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
 							<p id="lblGrowInfo_1" class="smolTitle"></p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+							<p>Your maximum acceleration factor sees an immediate improvement, rising by a full order of magnitude. You are now capable of increasing your acceleration factor through training and any augmentative effect designed with it in mind (such as a custom spell or precisely-tailored cybernetics). The growth this provides is linear at worst; you will never find the returns of a year's training to be less than the last years, though they may be proportionately less significant when compared to your new maximum.</p>
+							<p>Given additional efforts, you may develop new abilities of any sort that makes sense as an extension of 'enhanced speed', such as a form of control over vibrations; these abilities scale in power with your maximum acceleration factor.</p>
+							<p>Any effect that would slow you down against your will, from heavy weights to full-body paralysis to a physical override of your nervous system, will gradually but permanently lose its ability to interfere with your movements and acceleration factor.</p>
 						</div>
 					</td>
-					<td style="vertical-align: top; width: 30%">
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
 						<div style="width: 95%;" class="stdDiv" onClick="pick(2, 'growth', this)">
-							<p class="smolTitle">Growth Three</p>
+							<p class="smolTitle">Fastest</p>
 							<hr></hr>
 							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
 							<p id="lblGrowInfo_2" class="smolTitle"></p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+							<p>Your maximum acceleration factor increases again, rising by another full order of magnitude. The rate at which your acceleration factor improves, by all means, is itself increased by an order of magnitude.</p>
+							<p>Whenever you find yourself in a contest of speed with another entity, you will, at worst, slightly surpass them. You will never find that a foe can move and strike faster than you can see, even for brief moments of maximum exertion, nor that your quarry can outpace you. Effects beyond this that would increase your speed, but not to beyond your opponent's speed, will have no additional benefit; you are already being artificially raised to their level.</p>
+							<p>The abilities you can develop from your acceleration factor may stray farther from the idea of 'enhanced speed', allowing you to do such strange things as creating lasting bubbles of warped time.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(3, 'growth', this)">
+							<p class="smolTitle">Telekinetic Shroud</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_3" class="smolTitle"></p>
+							<p>You are enveloped in a shroud of telekinetic power, which acts semi-autonomously as best suits your will and desires. Though it has limited capability to outright generate force, it can redirect force very effectively, and though it is normally has very short range, it can spill over physical surfaces you come in contact with. Simple redirections of kinetic energy allow it to improve your grip, disregard issues of leverage, and spread your weight across unstable surfaces that would otherwise collapse.</p>
+							<p>While not true flight, you can adjust your momentum and rotate your body midair in ways otherwise impossible, and on the ground it is extremely difficult to make you lose your balance. Any atttacks you inflict in melee are much more controlled, and can be made more or less lethal as you wish; you could safely use a sword as a club or prevent the force of your blows from damaging vital organs. Attacks on you are blunted and dispersed to a lesser degree, a portion of the force redirected away from your most vulnerable structures and the overall attack slowed and dispersed as if you had a bit of extra padding.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(4, 'growth', this)">
+							<p class="smolTitle">Kinesis X</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_4" class="smolTitle"></p>
+							<p>Your original telekinetic shroud is no more, though this telekinetic aura retains all of its original capabilities, and more. This aura can outright create and destroy large amounts of force and energy, enabling true flight and much stronger barriers. Range remains limited, and what you can do with the portion of your aura wrapped around another physical object is improved to a notably lesser extent.</p>
+							<p>The abilities you use this aura to produce are less limited, and can include such things as absorbing and nullifying heat from what it wraps around or generating lasers from any point on your body. Though they are not limited by your understanding of them, and take minimal concentration to use, you similarly cannot develop them through purely mental efforts; repetitive, physical training and experimentation is necessary to develop novel abilities.</p>
+							<p>The overall power of this telekinetic aura scales with your physical attributes- improved strength, vitality, dexterity, and so on will all improve it substantially. Should you have any other telekinetic abilities, they will empower each other; this aura will gain strength equal to the total strength of your other abilities, and grant new strength to your other abilities that totals to equal its own strength. Additionally, all other telekinetic abilities you possess will be able to function more autonomously, with a diminished need for mental focus and true understanding.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(5, 'growth', this)">
+							<p class="smolTitle">Kinesis Y</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_5" class="smolTitle"></p>
+							<p>Your original telekinetic shroud is no more, though this telekinetic aura retains all of its original capabilities, and more. This aura can outright create and destroy large amounts of force and energy, enabling true flight and the outright levitation of objects. Range swells to well over a hundred meters, and you acquire a limited sense for all things you interact with via telekinetic force.</p>
+							<p>The precision with which you may manipulate force and energy, combined with the information the aura can grant you, can greatly aid all forms of crafting and manufacturing, given only small amounts of experimentation. Beyond the bare basics, everything you do with this aura requires some degree of mental focus and understanding of the forces involved, albeit much less than it seemingly should. Though you may be able to exert your power over many things at once, there is a limit to how much you can concentrate it; some objects may simply be too dense to lift, and the innate vitality of a warrior may prevent you from just crushing their heart.</p>
+							<p>The overall power of this telekinetic aura scales with your mental attributes- improved willpower, additional knowledge, superior intellect, and so on will all improve it substantially. Should you have any other telekinetic abilities, they will empower each other; this aura will gain strength equal to the total strength of your other abilities, and grant new strength to your other abilities that totals to equal its own strength. Additionally, all other telekinetic abilities you possess will be able to function much more precisely and controlledly, allowing you to pull off tricks otherwise impossible.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(6, 'growth', this)">
+							<p class="smolTitle">Heroic Form</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_6" class="smolTitle"></p>
+							<p>Your body is augmented extremely thoroughly. Every organ, every bone, every strand of muscle is cleansed of imperfections and enhanced to just beyond human limits. Regardless of your actual physical build, you can easily bench press a metric ton and outpace olympic runners, and with training you can become even greater.</p>
+							<p>Your biology responds to threats and environmental conditions more intelligently; you will not suffer from any form of allergy, and important parts of your body will never atrophy from simple disuse. Though your healing rate is merely doubled, given time, you can recover from any purely physical wound that does not kill you, up to and including the loss of everything but your brain, perfectly; this effect improves all forms of healing you benefit from.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(8, 'growth', this)">
+							<p class="smolTitle">Unbroken</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_8" class="smolTitle"></p>
+							<p>Your body becomes extraordinary durable. To scrape away a single millimeter of your flesh is as difficult as doing so to twenty millimeters of hardened steel, no matter what form of attack is used. This reinforcement scales with the unaugmented resiliency of every part of your body; your bones are many times tougher than this.<p>
+							<p>Your sheer vitality is similarly incredible, such that you can survive for well over an hour after having every drop of blood in your body removed, sprint for twelve hours without rest or water, and digest raw cellulose comfortably. Though you are not immune to poison or disease, you are much more resistant, and your body is capable of raising your body temperature by over a dozen degrees without any discomfort, and your cells and organs have access to new ways to process any toxins they detect.</p>
+							<p>Expect to be able to survive and recover from anything that leaves your brain and the internals of your torso largely intact, as your wounds clot almost instantly and healthier organs take up the slack of ones destroyed in combat. Each time you recover from some form of physical harm, you will become ever so slightly more resistant to it.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(10, 'growth', this)">
+							<p class="smolTitle">Mighty</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_10" class="smolTitle"></p>
+							<p>With sheer physical strength, you can lift, and toss several meters, objects massing well over a hundred tons. Though your durability is enhanced to a much lesser degree, you will never injure yourself by exerting your strength.</p>
+							<p>This does not diminish the precision with which you can exert or perceive your strength, no matter how much you are currently exerting; if you could previously judge the difference ten pounds of weight makes, you will notice when a ten ton object you are carrying becomes ten pounds heavier.</p>
+							<p>Should you will it, any object you pick up can be reinforced to a degree corresponding with its size and weight; an ordinary sword will receive much less benefit than one twice as tall as you.</p>
+							<p>You are not subject to the momentum generated by swinging heavy objects, nor do you need to concern yourself with stable ground becoming less so once you start swinging and lifting things.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(7, 'growth', this)">
+							<p class="smolTitle">Immortal</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_7" class="smolTitle"></p>
+							<p>You are biologically immortal. Age alone will never kill or weaken you, even non-physically, and magic or similar that attempts to manipulate age has no effect on you unless you allow it to. No matter how much time passes, all skills and abilities you possess will remain at their peak, even gradually returning to it if artificially diminished.</p>
+							<p>Your mind is strengthened to endure the passage of aeons, capable of maintaining a healthy outlook indefinitely and eventually recovering from even the most horrific psychological scars. Farther, so long as even one of your vital organs remains intact, you will not die, and can maintain some minimal degree of function.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(9, 'growth', this)">
+							<p class="smolTitle">Unbreakable</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_9" class="smolTitle"></p>
+							<p>Your simple durability increases by well over an order of magnitude, and your stamina becomes truly infinite. The damage an attack can inflict upon you is solely determined by the raw power behind it; an infinitely sharp blade is no more dangerous to you than a wooden club, and a spell to turn your body into sand is no more dangerous than one that conjures fire. Even should an attack go around this, warping or erasing the medium of your existence, your body produces its own exotic forces; you will be undeterred by the erasure of the four fundamental forces or your own history alike.</p>
+							<p>Nothing that lacks any form of will or intelligence can cause you true harm- a wolf is more dangerous to you than a supernova. The amount of damage any single attack can do to you is limited to one fifth of the amount necessary to kill you, and you become truly invulnerable for a period of one second after experiencing each such attack.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(11, 'growth', this)">
+							<p class="smolTitle">Herculean</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_11" class="smolTitle"></p>
+							<p>Your basic strength increases by a full order of magnitude, though the strength you can truly exert, in more limited situations, rises to truly ludicrous levels. Given time to do so, you can very slowly lift up any single thing, such as a castle or mountain, heft it onto your back, and move at a slow walking speed with it. This object will not be significantly disturbed by the effort, even dishes in cabinets remaining safely in place. Similarly, when in a direct contest of strength with any other being, you are guaranteed to succeed, even, and especially, if they cheat.</p>
+							<p>Your strength can be applied in situations where it would simply not be valid otherwise, allowing you to punch ghosts, stab hurricanes to death, and fire a twenty-pound bow with a thousand tons of force. While standing on smooth, perfectly flat ground, you could grab hold of a spaceship and prevent it from lifting off.</p>
 						</div>
 					</td>
 				</tr>
@@ -139,7 +255,7 @@
 		</div>
 		
 		<div id="Change" class="tabcontent">
-			<table style="width:90%;" align="left">
+			<table style="width:100%;" align="left">
 				<tr>
 					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
 						<div style="width: 95%;" class="stdDiv" onClick="pick(0, 'change', this)">
@@ -176,7 +292,7 @@
 		</div>
 
 		<div id="Damage" class="tabcontent">
-			<table style="width:90%;" align="left">
+			<table style="width:100%;" align="left">
 				<tr>
 					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
 						<div style="width: 95%;" class="stdDiv" onClick="pick(0, 'damage', this)">
@@ -213,7 +329,7 @@
 		</div>
 
 		<div id="Ending" class="tabcontent">
-			<table style="width:90%;" align="left">
+			<table style="width:100%;" align="left">
 				<tr>
 					<td id="endLewd" style="vertical-align: top; width: 90%; padding: 0 15px 0 0">
 						<div style="width: 95%; border-color: white" class="stdDiv" onClick="pick(0, 'damage', this)">
@@ -224,9 +340,9 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
 						</div>
 					</td>
-					<td id="endMagic" style="vertical-align: top; width: 90%; padding: 0 15px 0 0">
+					<td id="endMight" style="vertical-align: top; width: 90%; padding: 0 15px 0 0">
 						<div style="width: 95%; border-color: white" class="stdDiv" onClick="pick(1, 'damage', this)">
-							<p class="smolTitle">Magic Ending</p>
+							<p class="smolTitle">Might Ending</p>
 							<hr></hr>
 							<img src="images/placeholder.png" alt=".fst" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
@@ -239,9 +355,9 @@
 
 	</div>
 	
-	<div id="adventureStage" class="column middle" style="background-color:#4a4a4a; display: none">
+	<div id="adventureStage" class="column middle" style="display: none">
 		<div id="Trials">
-			<table style="width:90%;" align="left">
+			<table style="width:100%;" align="left">
 				<tr id="adventureOne" style="display: none">
 					<td style="vertical-align: top; width: 30%">
 						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(0)">
@@ -282,7 +398,7 @@
 					<td>
 						<button class="splrButton" onClick="toggleSpoiler(3)">Spoiler: Modifiers</button>
 						<div id="spoiler_3" style="width: 90%; border-color: white; border: solid; border-width: 2px; border-radius: 4px; border-color: #393939; background-color: #1E1F20; display: none" class="stdDiv">
-							<p class="smolTitle" style="background-color: #1E1F20">Modifiers</p>
+							<p class="smolTitle">Modifiers</p>
 							<hr></hr>
 							<p>Some help for those who do not want to play exactly as intended.</p>
 							<br>

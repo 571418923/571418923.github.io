@@ -3,29 +3,41 @@
 var temp;
 
 var growthPoints = 5;
-var arrGrowthSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
-var arrGrowthPrices = [1, 2, 3];
-var arrGrowthPrereq = [-1, -1, 1]; // Location in arrGrowthSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrGrowthSelections = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
+var arrGrowthPrices = [7, 9, 10, 3, 9,   9, 2, 2, 6, 10,   6, 10];
+var arrGrowthPrereq = [-1, 0, 1, -1, 3,   3, -1, 6, 6, 8,   6, 10]; // Location in arrGrowthSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrGrowthName = ["Fast", "Faster", "Fastest", "Telekinetic Shroud", "Kinesis X",   "Kinesis Y", "Heroic Form", "Immortal", "Unbroken", "Unbreakable",   "Mighty", "Herculean"]
 
 var changePoints = 3;
 var arrChangeSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
 var arrChangePrices = [1, 2, 3];
 var arrChangePrereq = [-1, -1, -1]; // Location in arrChangeSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrChangeName = ["ChOne", "ChTwo", "ChThree"];
 
 var damagePoints = 1;
 var arrDamageSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
 var arrDamagePrices = [1, 2, 3];
 var arrDamagePrereq = [2, -1, -1]; // Location in arrDamageSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrDamageName = ["DOne", "DTwo", "DThree"];
 
 var arrChoiceCards = [];
 
 
+
 var victoryStat = 0;
+
+var arrMight = [2, 2, 2, 1, 2,   2, 1, 1, 2, 2,   2, 2];
+var arrMagic = [0, 1, 1, 0, 1,   0, 0, 0, 0, 0,   0, 1];
+var arrArtifice = [0, 0, 0, 0, 0,   1, 0, 0, 0, 0,   0, 0];
+var arrAllies = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0];
+var arrFortune = [0, 0, 0, 0, 0,   0, 0, 0, 0, 1,   0, 0];
+
+
 
 var arrAdventureOptions = [1, 0, 1]; // 0 = unshown/not option, 1 = shown/option, 2 = already used
 
 var arrAdventureLewd = [0, 0, 1]; // yes/no is the Lewd stat significant
-var arrAdventureMagic = [1, 0, 1]; // yes/no is the Magic stat significant
+var arrAdventureMight = [1, 0, 1]; // yes/no is the Might stat significant
 
 var arrAdventureDifficulty = [10, 12, 13];
 var arrAdventureVictoryPoints = [[4, 2, 5], [4, 2, 5], [5, 1, 2]]; // Points awarded on victory
@@ -190,8 +202,17 @@ function getStatsText() {
 	text += "Stats:";
 	if (getStat("lewd") > 0)
 		text += "<br />" + "Lewdness: " + getStat("lewd");
+	
+	if (getStat("might") > 0)
+		text += "<br />" + "Might: " + getStat("might");
 	if (getStat("magic") > 0)
 		text += "<br />" + "Magic: " + getStat("magic");
+	if (getStat("artifice") > 0)
+		text += "<br />" + "Artifice: " + getStat("artifice");
+	if (getStat("allies") > 0)
+		text += "<br />" + "Allies: " + getStat("allies");
+	if (getStat("fortune") > 0)
+		text += "<br />" + "Fortune: " + getStat("fortune");
 	
 	return text;
 }
@@ -205,12 +226,38 @@ function getStat(stat) {
 		if (arrDamageSelections[1] != 0) { total += 2; };
 		if (arrDamageSelections[2] != 0) { total += 3; };
 	}
-	if ((stat == "magic") || (stat == "all_good"))
-	{
-		if (arrGrowthSelections[0] != 0) { total += 1; };
-		if (arrGrowthSelections[1] != 0) { total += 2; };
-		if (arrGrowthSelections[2] != 0) { total += 3; };
+	
+	if (stat == "might")
+	{	for (i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] == 2)
+				total += arrMight[i];
+		}
 	}
+	if (stat == "magic")
+	{ 	for (i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] == 2)
+				total += arrMagic[i];
+		}
+	}
+	if (stat == "artifice")
+	{	for (i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] == 2)
+				total += arrArtifice[i];
+		}
+	}
+	if (stat == "allies")
+	{	for (i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] == 2)
+				total += arrAllies[i];
+		}
+	}
+	if (stat == "fortune")
+	{	for (i = 0; i < arrGrowthSelections.length; i++)
+		{	if (arrGrowthSelections[i] == 2)
+				total += arrFortune[i];
+		}
+	}
+	
 	return total;
 }
 
@@ -287,7 +334,7 @@ function beginAdventure()
 			if (arrGrowthSelections[i] == 1)
 			{
 				arrGrowthSelections[i] = 2;
-				extendReport("Growth option " + i + " successfully purchased for " + arrGrowthPrices[i] + " Growth points.");
+				extendReport("Growth option " + arrGrowthName[i] + " successfully purchased for " + arrGrowthPrices[i] + " Growth points.");
 			}
 		}
 		for (i = 0; i < arrChangeSelections.length; i++) // Turns growth selections into locked in
@@ -295,7 +342,7 @@ function beginAdventure()
 			if (arrChangeSelections[i] == 1)
 			{
 				arrChangeSelections[i] = 2;
-				extendReport("Change option " + i + " successfully purchased for " + arrChangePrices[i] + " Change points.");
+				extendReport("Change option " + arrChangeName[i] + " successfully purchased for " + arrChangePrices[i] + " Change points.");
 			}
 		}
 		for (i = 0; i < arrDamageSelections.length; i++) // Turns growth selections into locked in
@@ -303,7 +350,7 @@ function beginAdventure()
 			if (arrDamageSelections[i] == 1)
 			{
 				arrDamageSelections[i] = 2;
-				extendReport("Damage option " + i + " successfully purchased for " + arrDamagePrices[i] + " Damage points.");
+				extendReport("Damage option " + arrDamageName[i] + " successfully purchased for " + arrDamagePrices[i] + " Damage points.");
 			}
 		}
 		
@@ -401,8 +448,8 @@ function endAdventure(adventure) // "adventure" is number indicating which trial
 	// Check if you meet endgame conditions, runs through every stat
 	if (getStat('lewd') >= 10)
 		endGame('lewd');
-	if (getStat('magic') >= 10)
-		endGame('magic');
+	if (getStat('might') >= 10)
+		endGame('might');
 }
 
 // Get difficulty modifier for an adventure
@@ -417,10 +464,10 @@ function getModifier(adventure)
 	else
 		modifier += getStat('lewd') / 4;
 	
-	if (arrAdventureMagic[adventure] == 1) // Positive stat applies bonus if relevant, small penalty if not relevant
-		modifier += getStat('magic');
+	if (arrAdventureMight[adventure] == 1) // Positive stat applies bonus if relevant, small penalty if not relevant
+		modifier += getStat('might');
 	else
-		modifier -= getStat('magic') / 4;
+		modifier -= getStat('might') / 4;
 	
 	return modifier;
 }
@@ -445,8 +492,8 @@ function endGame(avenge)
 	if (avenge == 'lewd') { document.getElementById("endLewd").style.display = "block"; }
 	else { document.getElementById("endLewd").style.display = "none"; }
 		
-	if (avenge == 'magic') { document.getElementById("endMagic").style.display = "block"; }
-	else { document.getElementById("endMagic").style.display = "none"; }
+	if (avenge == 'might') { document.getElementById("endMight").style.display = "block"; }
+	else { document.getElementById("endMight").style.display = "none"; }
 	
 	document.getElementById("growthTab").style.display = "none";
 	document.getElementById("changeTab").style.display = "none";
@@ -467,7 +514,19 @@ function initiate()
 		var label = document.getElementById(String('lblGrowInfo_' + i));
 		label.innerHTML = "Cost: " + arrGrowthPrices[i];
 		if (arrGrowthPrereq[i] != -1)
-			label.innerHTML += "<br> Requires " + arrGrowthPrereq[i];
+			label.innerHTML += "<br> Requires " + arrGrowthName[arrGrowthPrereq[i]];
+		if (arrMight[i] + arrMagic[i] + arrArtifice[i] + arrAllies[i] + arrFortune[i] > 0)
+			label.innerHTML += "<br> Grants"
+		if (arrMight[i] > 0)
+			label.innerHTML += " +" + arrMight[i] + " Might";
+		if (arrMagic[i] > 0)
+			label.innerHTML += " +" + arrMagic[i] + " Magic";
+		if (arrArtifice[i] > 0)
+			label.innerHTML += " +" + arrArtifice[i] + " Artifice";
+		if (arrAllies[i] > 0)
+			label.innerHTML += " +" + arrAllies[i] + " Allies";
+		if (arrFortune[i] > 0)
+			label.innerHTML += " +" + arrFortune[i] + " Fortune";
 	}
 	
 	for (i = 0; i < arrChangeSelections.length; i++) // Change option info
@@ -475,7 +534,7 @@ function initiate()
 		var label = document.getElementById(String('lblChangeInfo_' + i));
 		label.innerHTML = "Cost: " + arrChangePrices[i];
 		if (arrChangePrereq[i] != -1)
-			label.innerHTML += "<br> Requires " + arrChangePrereq[i];
+			label.innerHTML += "<br> Requires " + arrChangeName[arrChangePrereq[i]];
 	}
 	
 	for (i = 0; i < arrDamageSelections.length; i++) // Damage option info
@@ -483,7 +542,7 @@ function initiate()
 		var label = document.getElementById(String('lblDamageInfo_' + i));
 		label.innerHTML = "Cost: " + arrDamagePrices[i];
 		if (arrDamagePrereq[i] != -1)
-			label.innerHTML += "<br> Requires " + arrDamagePrereq[i];
+			label.innerHTML += "<br> Requires " + arrDamageName[arrDamagePrereq[i]];
 	}
 }
 
