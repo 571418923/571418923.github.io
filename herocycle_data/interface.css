@@ -1,0 +1,217 @@
+body {
+  background-color: black;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+p {
+  color: white;
+  padding: 2;
+  margin: 2;
+}
+
+p.smolTitle {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #313131;
+  color: white;
+  vertical-align: baseline;
+  
+  border: none;
+  width: 90%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+h6 {
+  color: white;
+  padding: 2;
+  margin: 2;
+  font-size: 14px;
+}
+
+div {
+  color: white;
+  font-size: 16px;
+}
+
+button.stdButton {
+  font-size: 14px;
+  background-color: #282828;
+  color: white;
+  border-radius: 2px;
+  padding: 6px;
+  border: solid;
+  min-width: 20%;
+  vertical-align: top;
+  text-align: center;
+}
+
+button.calcButton {
+	text-align: center;
+	width: 120px;
+	padding: 4px;
+	margin: 4px;
+	border-color: black;
+	border-style: solid;
+	border-width: 2px;
+	background-color: white;
+}
+
+button.smolButton {
+  font-size: 16px;
+  background-color: #313131;
+  color: white;
+  vertical-align: baseline;
+  
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button.splrButton {
+  font-size: 16px;
+  background-color: #030c78;
+  background-image: linear-gradient(#235E9E, #105096);
+  color: white;
+  vertical-align: baseline;
+  
+  border: solid;
+  border-radius: 4px;
+  border-color: #2868AD;
+  border-width: 1px;
+  
+  padding: 8px;
+  margin: 0px 0px 8px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button.splrButton:hover {
+  background-image: linear-gradient(#1a5290, #044285);
+}
+
+div.stdDiv {
+  font-size: 12px;
+  background-color: #313131;
+  color: white;
+  border-radius: 2px;
+  border-style: ridge;
+  border-width: 4px;
+  border-color: red;
+  padding: 4px;
+  min-width: 20%;
+  vertical-align: top;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	color: white;
+	padding-bottom: 30px;
+}
+
+.tab {
+    overflow: hidden;
+	border: none;
+}
+
+.tab button {
+	color: white;
+    background-color: #2a2a2a;
+    float: middle;
+    border: double;
+	border-width: 4px;
+    outline: none;
+    cursor: pointer;
+	margin: 4px;
+    padding: 4px 4px;
+    transition: 0.3s;
+    font-size: 17px;
+	width: 90%;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+	color: black;
+}
+
+.tab button.active {
+    background-color: #ccc;
+	color: black;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: none;
+    border-top: none;
+	height: 87%;
+}
+
+#myProgress {
+    width: 100%;
+    background-color: #313131;
+}
+
+#myBar {
+    width: 1%;
+    height: 30px;
+	color: black;
+	text-align: left;
+	line-height: 30px;
+    background-color: grey;
+}
+
+.container {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.aligner-item {
+    max-width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    padding: 10px;
+	height: 90%;
+	overflow: hidden;
+}
+
+.left, .right {
+    width: 20%;
+    min-width: 100px;
+	
+	border-style:outset;
+	border-radius: 2px;
+	border-color: #aaaaaa;
+	padding: 8px;
+	margin: 8px;
+}
+
+.middle {
+    width: 74%;
+    min-width: 200px;
+	border-style:outset;
+	border-radius: 2px;
+	border-color: #aaaaaa;
+	padding: 8px;
+	margin: 8px;
+	position: relative;
+	left: 23%;
+}
+
+
+

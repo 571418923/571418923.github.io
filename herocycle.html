@@ -1,0 +1,308 @@
+<script type="text/javascript" src="herocycle_data/main.js"></script>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <link rel="stylesheet" type="text/css" href="herocycle_data/interface.css">
+  <link href="herocycle_data/css.css" rel="stylesheet">
+</head>
+
+<body style="
+	background-image: url(images/placeholder.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;">
+
+<div class="container">
+	<div class="column left" style="background-color:#313131; position:fixed">
+		<div>Interactive Version 0.1</div>
+		<div>By Savestate</div>
+		<br/>
+		<div class="tab" id="tabButtons">
+			<button class="tablinks active" id="infoTab" onclick="openTab(event, 'Info')" style="border: solid">Info</button>
+			<button id="growthTab" class="tablinks" onclick="openTab(event, 'Growth')">Growth</button>
+			<button id="changeTab" class="tablinks" onclick="openTab(event, 'Change')">Change</button>
+			<button id="damageTab" class="tablinks" onclick="openTab(event, 'Damage')">Damage</button>
+			<button id="beginAdventure" class="tablinks" onclick="beginAdventure()" style="border: solid">Adventure</button>
+			<button id="endTab" class="tablinks" onclick="openTab(event, 'Ending')" style="display: none; border: solid">Ending</button>
+		</div>
+		<br/>
+		<div id="lblStats" style="width: 300px">Stats:</div>
+	</div>
+	
+	<div id="planningStage" class="column middle" style="background-color:#4a4a4a;">
+		
+		
+		<div id="Info" class="tabcontent" style="display: block">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 90%; border-color: white" class="stdDiv">
+							<p class="smolTitle">Intro</p>
+							<hr></hr>
+							<p>In a time of great peril, the people of another world summon you to act as their saviour. Guided by the currents of fate, strengthened by ancient powers, you are to become ever greater, and yet that same fate will inevitably draw new threats to you and leave you scarred irrevocably. The cycle of the hero's journey will repeat, over and over again, until you break the world or it breaks you.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div style="width: 90%; border-color: white" class="stdDiv">
+							<p class="smolTitle">Help</p>
+							<hr></hr>
+							<p>This CYOA is primarily divided into two stages: the Planning stage and the Adventure stage.</p>
+							<p>In the Planning stage, you use whatever points you have to purchase options from the Growth, Change, and Damage sections.</p>
+							<p>In order to end the stage, you must be at or below your Growth point limit, exactly at your Change point limit, and at or above your Damage point limit- you can always take more drawbacks, after all.</p>
+							<p>Once ready, the Adventure button will light up, allowing you to switch to the Adventure stage. Your selections will be locked in, and a set of potential adventures will be made available. After choosing an adventure, and having your victory determined, you will receive a new set of points and be moved back to the Planning stage.</p>
+							<p>This cycle will repeat until any Stat reaches a total of 10 and triggers an End. Whether this is a Good or Bad end depends on the particular Stat, so you may wish to be careful!</p>
+							<p>Note now that while Stats are used to determine success on Adventures and the End you receive, but the text of each option is a better descriptor of their actual effects.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td id="planningCheats">
+						<button class="splrButton" onClick="toggleSpoiler(1)">Spoiler: Modifiers</button>
+						<div id="spoiler_1" style="width: 90%; border-color: white; border: solid; border-width: 2px; border-radius: 4px; border-color: #393939; background-color: #1E1F20; display: none" class="stdDiv">
+							<p class="smolTitle" style="background-color: #1E1F20">Modifiers</p>
+							<hr></hr>
+							<p>Some help for those who do not want to play exactly as intended.</p>
+							<br>
+							<table>
+								<tr>
+									<button class="calcButton" onClick="modPoints('growth', 1)">+1 Growth Points</button>
+									<button class="calcButton" onClick="modPoints('change', 1)">+1 Change Points</button>
+									<button class="calcButton" onClick="modPoints('damage', 1)">+1 Damage Points</button>
+								</tr>
+								<br>
+								<tr>
+									<button class="calcButton" onClick="modPoints('growth', 2)">*2 Growth Points</button>
+									<button class="calcButton" onClick="modPoints('change', 2)">*2 Change Points</button>
+									<button class="calcButton" onClick="modPoints('damage', 2)">*2 Damage Points</button>
+								</tr>
+								<br>
+								<tr>
+									<button class="calcButton" onClick="modPoints('growth', 3)">-1 Growth Points</button>
+									<button class="calcButton" onClick="modPoints('change', 3)">-1 Change Points</button>
+									<button class="calcButton" onClick="modPoints('damage', 3)">-1 Damage Points</button>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="splrButton" onClick="toggleSpoiler(2)">Spoiler: Report</button>
+						<div id="spoiler_2" style="width: 90%; border-color: white; border: solid; border-width: 2px; border-radius: 4px; border-color: #393939; background-color: #1E1F20; display: none"  class="stdDiv">
+							<p class="smolTitle" style="background-color: #1E1F20">Report</p>
+							<hr></hr>
+							<div id="divReport">
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="Growth" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(0, 'growth', this)">
+							<p class="smolTitle">Growth One</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_0" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(1, 'growth', this)">
+							<p class="smolTitle">Growth Two</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_1" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(2, 'growth', this)">
+							<p class="smolTitle">Growth Three</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_2" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="Change" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(0, 'change', this)">
+							<p class="smolTitle">Change One</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblChangeInfo_0" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(1, 'change', this)">
+							<p class="smolTitle">Change Two</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblChangeInfo_1" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(2, 'change', this)">
+							<p class="smolTitle">Change Three</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblChangeInfo_2" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="Damage" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(0, 'damage', this)">
+							<p class="smolTitle">Damage One</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".run" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblDamageInfo_0" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 0 15px 0 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(1, 'damage', this)">
+							<p class="smolTitle">Damage Two</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".fst" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblDamageInfo_1" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(2, 'damage', this)">
+							<p class="smolTitle">Damage Three</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".99z" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblDamageInfo_2" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="Ending" class="tabcontent">
+			<table style="width:90%;" align="left">
+				<tr>
+					<td id="endLewd" style="vertical-align: top; width: 90%; padding: 0 15px 0 0">
+						<div style="width: 95%; border-color: white" class="stdDiv" onClick="pick(0, 'damage', this)">
+							<p class="smolTitle">Lewd Ending</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".run" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+					<td id="endMagic" style="vertical-align: top; width: 90%; padding: 0 15px 0 0">
+						<div style="width: 95%; border-color: white" class="stdDiv" onClick="pick(1, 'damage', this)">
+							<p class="smolTitle">Magic Ending</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".fst" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+	
+	<div id="adventureStage" class="column middle" style="background-color:#4a4a4a; display: none">
+		<div id="Trials">
+			<table style="width:90%;" align="left">
+				<tr id="adventureOne" style="display: none">
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(0)">
+							<p class="smolTitle">Adventure One</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblAdvInfo_0" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+				<tr id="adventureTwo" style="display: none">
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(1)">
+							<p class="smolTitle">Adventure Two</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblAdvInfo_1" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+				<tr id="adventureThree" style="display: none">
+					<td style="vertical-align: top; width: 30%">
+						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(2)">
+							<p class="smolTitle">Adventure Three</p>
+							<hr></hr>
+							<img src="images/placeholder.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblAdvInfo_2" class="smolTitle"></p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut nulla aliquam, pellentesque mi id, vestibulum velit. Proin turpis leo, volutpat et lorem quis, pretium gravida libero. Nullam quis fermentum nunc, sed blandit magna. Vivamus ipsum neque, consequat vel dui eget, interdum vulputate nisi. Aliquam eu condimentum dolor, eget pellentesque mi. Vivamus quis bibendum nibh. In eget aliquam augue. </p>
+						</div>
+					</td>
+				</tr>
+				<tr id="adventureCheats" style="display: block">
+					<td>
+						<button class="splrButton" onClick="toggleSpoiler(3)">Spoiler: Modifiers</button>
+						<div id="spoiler_3" style="width: 90%; border-color: white; border: solid; border-width: 2px; border-radius: 4px; border-color: #393939; background-color: #1E1F20; display: none" class="stdDiv">
+							<p class="smolTitle" style="background-color: #1E1F20">Modifiers</p>
+							<hr></hr>
+							<p>Some help for those who do not want to play exactly as intended.</p>
+							<br>
+							<table>
+								<tr>
+									<button class="calcButton" onClick="modVictory(1)">Guarantee Victory</button>
+									<button class="calcButton" onClick="modVictory(2)">Normal Chances</button>
+									<button class="calcButton" onClick="modVictory(3)">Guarantee Defeat</button>
+								</tr>
+								<br>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+		
+</div>
+
+
+ 
+</body></html>
