@@ -3,10 +3,10 @@
 var temp;
 
 var growthPoints = 5;
-var arrGrowthSelections = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
-var arrGrowthPrices = [7, 9, 10, 3, 9,   9, 2, 2, 6, 10,   6, 10, 3, 7, 6,   3, 8, 6, 6, 2,   6, 3, 7, 5];
-var arrGrowthPrereq = [-1, 0, 1, -1, 3,   3, -1, 6, 6, 8,   6, 10, -1, 12, 12,   -1, 15, 15, 15, -1,   -1, -1, 21, 21]; // Location in arrGrowthSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
-var arrGrowthName = ["Fast", "Faster", "Fastest", "Telekinetic Shroud", "Kinesis X",   "Kinesis Y", "Heroic Form", "Immortal", "Unbroken", "Unbreakable",   "Mighty", "Herculean", "White Magic", "Deathbreaker", "Cursebreaker",   "Elementalism", "Elemental Forge", "Elemental Transmutation", "Narrow Paths", "Baleful Glow",   "Ritualism", "Aetherflux", "Flux Memory", "Flux Storm"]
+var arrGrowthSelections = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0]; // 0 = unselected, 1 = selected, 2 = locked in
+var arrGrowthPrices = [7, 9, 10, 3, 9,   9, 2, 2, 6, 10,   6, 10, 3, 7, 6,   3, 8, 6, 6, 2,   6, 3, 7, 5, 2,   7, 6, 3, 6, 5,   5, 9, 5, 3, 10,   10];
+var arrGrowthPrereq = [-1, 0, 1, -1, 3,   3, -1, 6, 6, 8,   6, 10, -1, 12, 12,   -1, 15, 15, 15, -1,   -1, -1, 21, 21, -1,   24, 24, -1, 27, 27,   -1, 30, -1, -1, 33,   33]; // Location in arrGrowthSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrGrowthName = ["Fast", "Faster", "Fastest", "Telekinetic Shroud", "Kinesis X",   "Kinesis Y", "Heroic Form", "Immortal", "Unbroken", "Unbreakable",   "Mighty", "Herculean", "White Magic", "Deathbreaker", "Cursebreaker",   "Elementalism", "Elemental Forge", "Elemental Transmutation", "Narrow Paths", "Baleful Glow",   "Ritualism", "Aetherflux", "Flux Memory", "Flux Storm", "Necessary Talent",   "Necessary Ability", "Necessary Knowledge", "Box of Scraps", "Submaterial Refinement", "Always Prepared",   "Painless Augmentation", "Unbound Alteration", "Mass Proliferation", "Extended Tree", "Deep Extraction",   "Unreality Synthesis"]
 
 var changePoints = 3;
 var arrChangeSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
@@ -26,11 +26,11 @@ var arrChoiceCards = [];
 
 var victoryStat = 0;
 
-var arrMight = [2, 2, 2, 1, 2,   2, 1, 1, 2, 2,   2, 2];
-var arrMagic = [0, 1, 1, 0, 1,   0, 0, 0, 0, 0,   0, 1];
-var arrArtifice = [0, 0, 0, 0, 0,   1, 0, 0, 0, 0,   0, 0];
-var arrAllies = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0];
-var arrFortune = [0, 0, 0, 0, 0,   0, 0, 0, 0, 1,   0, 0];
+var arrMight = 		[2, 2, 2, 1, 2,   2, 1, 1, 2, 2,   2, 2, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0];
+var arrMagic = 		[0, 1, 1, 0, 1,   0, 0, 0, 0, 0,   0, 1, 1, 1, 1,   1, 1, 1, 2, 1,   1, 1, 2, 1, 0,   1, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1];
+var arrArtifice = 	[0, 0, 0, 0, 0,   1, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 1, 1, 0, 0,   1, 0, 0, 0, 1,   1, 1, 1, 2, 1,   1, 2, 1, 1, 2,   2];
+var arrAllies = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 1,   0, 1, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1, 1, 1, 0, 0,   0];
+var arrFortune = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 0,   0, 1, 0, 0, 1,   0, 0, 0, 0, 1,   0];
 
 
 
