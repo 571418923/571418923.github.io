@@ -19,6 +19,7 @@
 		<br/>
 		<div class="tab" id="tabButtons">
 			<button class="tablinks active" id="infoTab" onclick="openTab(event, 'Info')" style="border: solid">Info</button>
+			<button id="reportTab" class="tablinks" onclick="openTab(event, 'Report')" style="bordeR: solid">Report</button>
 			<button id="growthTab" class="tablinks" onclick="openTab(event, 'Growth')">Growth</button>
 			<button id="changeTab" class="tablinks" onclick="openTab(event, 'Change')">Change</button>
 			<button id="damageTab" class="tablinks" onclick="openTab(event, 'Damage')">Damage</button>
@@ -51,13 +52,13 @@
 							<p>This CYOA is primarily divided into two stages: the Planning stage and the Adventure stage.</p>
 							<p>In the Planning stage, (the stage you are in right now) you use whatever points you have to purchase options from the Growth, Change, and Damage sections.</p>
 							<p>In order to end the stage, you must be at or below your Growth point limit, exactly at your Change point limit, and at or above your Damage point limit- you can always take more drawbacks, after all.</p>
-							<p>Once ready, the Adventure button will light up, allowing you to switch to the Adventure stage. Your selections will be locked in, and a set of potential adventures will be made available. After choosing an adventure, and having your victory determined, you will receive a new set of points and be moved back to the Planning stage.</p>
+							<p>Once ready, the Adventure button will light up, allowing you to switch to the Adventure stage. Your selections will be locked in, and a set of potential adventures will be made available. After choosing an adventure, and having your victory or failure determined, you will receive a new set of points and be moved back to the Planning stage.</p>
 							<p>This cycle will repeat until any Stat reaches a total of 10 and triggers an End. Whether this is a Good or Bad end depends on the particular Stat, so you may wish to be careful!</p>
 							<p>Note now that while Stats are used to determine success on Adventures and the End you receive, the text of each option is a better descriptor of their actual effects.</p>
 							<br></br>
 							<p>You may selectively toggle or scale the effects of Growth options, and specific parts of Growth options, to whatever degree you desire, up to but not exceeding their normal maximum strength. You may expect Growth options, especially those that enhance the same stat, to combine for an ultimately superior effect, even when they might seem contradictory or redundant.</p>
 							<p>Change options can be resisted or temporarily disabled with some amount of effort. Expect to require a small amount of active effort to avoid slipping back to the 'base state' they set.</p>
-							<p>Damage options are very difficult to counteract. The more fully you have undone or mitigated their effects, the harder it becomes to weaken them another step. Should you not maintain active efforts to keep them at bay, they will very quickly return to full strength.</p>
+							<p>Damage options are very difficult to counteract. The more fully you have undone or mitigated their effects, the harder it becomes to weaken them another step. Should you not maintain active efforts to keep them at bay, they will very quickly return to full strength. In places where they <i>directly</i> conflict, absolute statements made by Damage options should override those made by Growth options.</p>
 							<p>It is possible to acquire new abilities outside of the options you take. The world you were summoned to is filled with magic and advanced yet rather un-industrial technology.</p>
 						</div>
 					</td>
@@ -92,14 +93,17 @@
 						</div>
 					</td>
 				</tr>
+			</table>
+		</div>
+		
+		<div id="Report" class="tabcontent">
+			<table style="width:100%;" align="left">
 				<tr>
 					<td>
-						<button class="splrButton" onClick="toggleSpoiler(2)">Spoiler: Report</button>
-						<div id="spoiler_2" style="width: 90%; border-color: white; border: solid; border-width: 2px; border-radius: 4px; border-color: #393939; background-color: #1E1F20; display: none"  class="stdDiv">
+						<div style="width: 90%; border-color: white"  class="stdDiv">
 							<p class="smolTitle" style="background-color: #1E1F20">Report</p>
 							<hr></hr>
 							<div id="divReport">
-							</div>
 						</div>
 					</td>
 				</tr>
@@ -456,7 +460,7 @@
 							<img src="images/placeholder_3.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
 							<p id="lblGrowInfo_26" class="smolTitle"></p>
-							<p>Your ability to singlehandedly push forwards the scientific and technology horizon is comparable to some civilizations. This does not accelerate smaller and more focused projects significantly, but greatly reduces the cost of expanding their scope. Developing every industrial process necessary to mass-produce a new product is only slightly more difficult than developing the new product itself.</p>
+							<p>Your ability to singlehandedly push forwards the scientific and technological horizon is comparable to some civilizations. This does not accelerate smaller and more focused projects significantly, but greatly reduces the cost of expanding their scope. Developing every industrial process necessary to mass-produce a new product is only slightly more difficult than developing the new product itself.</p>
 							<p>You acquire theoretical knowledge at an incredible pace, obtaining many times more information from experiments than should be possible and stumbling across breakthroughs and valuable insights with unsettling regularity. The discoveries you make in this manner are often, but not always, tailored to you current or future needs. You might stumble across the processes necessary to build an arcane forge that can burn ice for warmth and clean water shortly before you are invaded by an army of world-freezing wraiths.</p>
 						</div>
 					</td>
@@ -480,7 +484,7 @@
 							<img src="images/placeholder_3.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
 							<p id="lblGrowInfo_28" class="smolTitle"></p>
-							<p>All materials, components, and tools you use in any form of crafting are treated as if they were vastly better for the task than they actually are. A sheet of iron, hammered into shape by hand and riddled with flaws and impurities, would compare favorably to modern tungsten alloy. Twine soaked in saltwater easily substitutes for copper wire, and nearly-inert wood pulp can replace many magical herbs and reagents. This boost takes effect no matter how high the quality of your tools and materials already is; modern tungsten alloy receiving the same proportionate boost as primtive iron.</p>
+							<p>All materials, components, and tools you use in any form of crafting are treated as if they were vastly better for the task than they actually are. A sheet of iron, hammered into shape by hand and riddled with flaws and impurities, would compare favorably to modern tungsten alloy. Twine soaked in saltwater easily substitutes for copper wire, and nearly-inert wood pulp can replace many magical herbs and reagents. This boost takes effect no matter how high the quality of your tools and materials already is; modern tungsten alloy receiving the same proportionate boost as primitive iron.</p>
 							<p>Though this cannot grant new properties to your materials, it can greatly magnify them; you could use a tiny pellet of sodium as the core of a decent bomb. Generally, you may expect the precise enhancement a material or tool gains to depend on what would best serve its current intended purpose.</p>
 						</div>
 					</td>
@@ -584,7 +588,7 @@
 							<img src="images/placeholder_4.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
 							<hr></hr>
 							<p id="lblGrowInfo_36" class="smolTitle"></p>
-							<p>You possess a vast hoard of wealth, accumulated over your most recent adventures. It consists of great mounds of precious metals, beautifully carved gemstones, and various finery- paintings, drinking vessels and utensils of all sorts, jewlery, and so on. Piled up, it totals to a hill of raw wealth over a dozen meters across, which, no matter how much you take from it, will never run dry.</p>
+							<p>You possess a vast hoard of wealth, accumulated over your most recent adventures. It consists of great mounds of precious metals, beautifully carved gemstones, every kind of mundane currency you may have use for (such as euros, should you return to Earth), and various finery- paintings, drinking vessels and utensils of all sorts, jewlery, and so on. Piled up, it totals to a hill of raw wealth over a dozen meters across, which, no matter how much you take from it, will never run dry.</p>
 							<p>Though infinite wealth from one point of view, the practical value of the contents are much less. None of the finery is enchanted or especially useful, and the metals and gems hold no special power. You may need to caution yourself with how much of this you spend in any one place.</p>
 						</div>
 					</td>
@@ -721,6 +725,166 @@
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<div style="vertical-align: top; width: 97%; padding: 15px 10px 10px 0; border-color: white" class="stdDiv">
+							<p class="smolTitle">Fortune</p>
+							<p style="text-align: center">These options primarily enhance the Fortune stat. Fortune represents fate, luck, and narrative based effects.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(48, 'growth', this)">
+							<p class="smolTitle">Wanted Alive</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_48" class="smolTitle"></p>
+							<p>Your enemies will intentionally avoid killing or crippling you until they have you securely captured in some way. This could simply mean that a squad of soldiers ties you up before shooting you in the head. No matter what difficulties this causes them, nor their understanding of why they avoid killing you immediately, they will not be able to deny this power's influence.</p>
+							<p>To varying degrees, this extends to mental influence; while uncaptured, you will not suffer from absolute mind control nor subtler effects too great for you to possibly resist, though lesser emotional influence and similar remain possible dangers.</p>
+							<p>So long as you can at least keep walking at a slow, shuffling pace, no environmental conditions will kill you, or lead directly to an inability to keep walking (such things can still weaken you, of course). This can protect you from unbreathable atmosphere, stop you from sinking into a swamp, and ensure currents of raw chaos don't dissolve you outright.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(49, 'growth', this)">
+							<p class="smolTitle">Inevitable Escape</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_49" class="smolTitle"></p>
+							<p>When you are captured by any means, you will find your odds of escape steadily improving. This will cause more and more improbable circumstances to arise; with no other powers, and no external aid, you would eventually escape an air-filled sphere of solid steel floating in orbit. The only true way to counteract this is to invest ever-greater efforts into keeping you captive. For a short time after you escape, it will be next to impossible to recapture you.</p>
+							<p>Should those that have captured you wish for your death, or to inflict another semi-permanent ailment such as mind control or crippling, they will be unwilling to do so quickly or simply. They may feel the need to put you through a trial of adversity, to bring you to a specific ritual site, or to place you in an overly complicated death trap. No matter how they go about it, you will have at least a decent chance of escaping fully intact, and will not be worn down from repeated attempts in such a way that your odds of doing so drop.</p>
+							<p>This extends, to some degree, to other effects that would 'trap you', including corruption, disease, curses, fate, and slow poisons, but not to death. As an example, even if your mind, body, and soul is rewritten to become another's adoring slave, so long as you live, you will eventually, inevitably, return to your true self.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(50, 'growth', this)">
+							<p class="smolTitle">Datashift</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_50" class="smolTitle"></p>
+							<p>The natural flow of information is warped around your existence. When you want or need information, it comes to you with incredible ease. Your enemies are likely to immediately reveal the full extent of their plans to you should you simply ask. Everyone you encounter is much happier to provide useful exposition, and knows more than they realistically should.</p>
+							<p>This can pull information from nowhere; should you be hunting a monster that kills all its prey before it can be detected, you might find "survivor's logs" that were never actually written, detailing its powers and weaknesses. Even when you do not seek out information, you will often receive warnings of current or upcoming events you are interested in or would want to stop; a master thief who has never left a trace before might send you a cryptic note the night before attempting to rob you.</p>
+							<p>Information will not harm you; nobody will be upset with you for knowing something you should not, and you will never suffer from any sort of memetic effect. This has a reduced effect in the opposite direction, making it easier and more likely for others, especially your enemies, to develop and retain useful misconceptions about you.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(51, 'growth', this)">
+							<p class="smolTitle">A Chance</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_51" class="smolTitle"></p>
+							<p>No matter how grim the situation is or becomes, you will always retain a minimal chance of achieving some form of victory. This applies the same if you were doomed from the start or if you continuously screwed up the chances you had; so long as you remain alive, your efforts are never guaranteed to be futile. There will always be something you can do that is productive, that will improve your odds of success, even if you happen to be the only mortal on a team of cosmic gods.</p>
+							<p>This is not limited to combat or defeating opposition, and can make it theoretically possible to survive being jettisoned from a spacecraft without a suit, to forge an artifact far beyond your normal level of competence, and so on. Just because it is possible, and you can retry until you are dead, does not mean it can not take a great deal of effort, more and more with each failure as you burn opportunities. The cost of achieving victory, and especially so for achieving victory against whatever long odds you face, is not reduced by this power.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(52, 'growth', this)">
+							<p class="smolTitle">Everyone Lives</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_52" class="smolTitle"></p>
+							<p>When you are victorious, the consequences of your victory are substantially less. Should you lead an army against an opposing force and win, you will find your casualties are much fewer than they appeared to be mid-battle. Should someone you care about sacrifice their life to destroy a great threat, there is a good chance they will manage to escape the cost of doing so.</p>
+							<p>Even in less dramatic situations, you will find less collateral or accidental damage and injury occurs, and what does occur is easier to mend. Those you help will be less upset with you for any actions you take trying to help them, even if you disobey some authority or code they respect or damage them or their possessions in the process, and those you defeat are less likely to form grudges.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(53, 'growth', this)">
+							<p class="smolTitle">Soft Counter</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_53" class="smolTitle"></p>
+							<p>You will never find that an enemy is able to hard-counter you. Precognition will function fuzzily at best around you, manipulations of fate, narrative, and causality cannot force you to act in a specific way nor even modestly hamper you, and as far as anyone who would use them against you is concerned, you have no past or future. Your powers cannot be stolen, copied, directly weakened, or disabled; an antimagic zone will not stop you from casting spells, and an ever-evolving biological monstrosity cannot duplicate your physiological advantages.</p>
+							<p>Anything that would immediately and simply stop you from doing anything at all about the situation, without any chance for you to do something about it, is blocked. If you have no possible way to escape a stasis field, you cannot be trapped in a stasis field; if you have no possible way to survive your planet being blown up, it cannot be blown up. Should you find yourself on a perfectly flat plain, fighting an opponent that can fly indefinitely and project energy attacks, while you have no ranged options or ability to fly, your opponent will most likely find themselves suddenly groundbound.</p>
+							<p>Additionally, anything that would apply some manner of penalty to you, including curses, injuries, and even tradeoffs you accepted, is significantly, but not completely, ameliorated.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(54, 'growth', this)">
+							<p class="smolTitle">Ray of Hope</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_54" class="smolTitle"></p>
+							<p>The worse the situation becomes, the more benefits you receive to help you face it. This mostly comes in the form of new options and opportunities that would not otherwise exist, such as a weak point opening in the armor of an invincible monster. Your powers are more likely to expand in utility than gain a surge of raw strength, and you are more likely to find a magic sword tailored to defeat your current foe than one simply stronger than what you previously used. What options arise, specifically, depends on what would most help you against the current threat.</p>
+							<p>The benefits of this effect degrade only slowly once the problematic situations ends or becomes calmer, and never vanish completely- you will always be better than you were before, once everything comes to a close. Additionally, any opponent you face will find that they need to exert real effort to defeat you, no matter how strong they may be, and you have a good chance of succesfully inflicting significant harm. You could plausibly avoid detection by a post-singularity AI pulling data from a network of ground observation satellites that can spot individual motes of dust with nothing more than camouflage-pattern cloth, then sneak into a critical manufacturing center made of eldritch alloys and blow it up with a few sacks of black powder.</p>
+							<p>Effectively, the advantage any enemy can gain by being superior to you in some manner is significantly diminished, rising with their comparative advantage until, past a certain threshold, it provides no additional benefit to them at all. This naturally extends to situations beyond a simple, clear enemy, such as ecosphere collapse, environmental hazards, and wholly accidental crises.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(55, 'growth', this)">
+							<p class="smolTitle">Darkest Hour</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_55" class="smolTitle"></p>
+							<p>At a certain threshold of terribleness, you may call upon incredible power. In order to activate, this requires some form of great, imminent catastrophe- something that will send decades of your work down the drain, kill millions, end a civilization, etc, all within the space of the next hour or sooner. Your own death is never a sufficient catastrophe, by itself, to activate this ability.</p>
+							<p>The moment this ability activates, you are brought to full power- healed completely and perfectly of all wounds and negatively conditions, all resource pools refilled, all ability cooldowns reset, all equipment restored perfectly in a similar manner, and every other temporary enhancement you have ever benefitted from applied to you without conflicts. So long as it remains active, you are brought back to full power each time your heart beats (this is not negatively impacted by a lack of a heart), and cannot die. All of your attributes, abilities, and powers become significantly stronger, enough such that you have, at minimum, a fair chance of defeating whatever will cause this catastrophe. Any barrier that would stop you from reaching or targeting the source is removed, and you are given sufficient information to understand what the source is- should an asteroid be about to hit a planet on the other side of the universe in the next multiverse over, wiping out a civilization of billions, you could choose to intervene, and instantly appear on-site.</p>
+							<p>This ability will never overwhelm you with information nor with guilt, though you cannot use the strength it grants save to combat the coming catastrophe.</p>
+							<p>Once the catastrophe is averted, occurs, or seven minutes pass, this ability immediately ends. You are optionally returned to the location you inhabited when it activated, lose all but the faintest spark of the power you were granted by it, and cannot use the ability again for a full three days.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(56, 'growth', this)">
+							<p class="smolTitle">True Heroes</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_56" class="smolTitle"></p>
+							<p>Your allies, be they old friends standing by you or enemies begrudgingly cooperating for a brief time, are applied much more effectively. They will never fight amongst each other, worry about future betrayals to such a degree as will hamper effectiveness, bicker needlessly, or take other such wholly-detrimental actions. Even if they know nothing of those they work alongside, they will be able to work together and function as combined units with more effectiveness than if they were a perfect gestalt consciousness. This does not directly facilitate information exchange between your allies, but ensures such exchanges occur without flaw and prevents lack of communication from hampering their coordination. Those of your allies that would best handle a situation will happen to be present or nearby when it begins; this extends even to non-allies you will be able to recruit during the situation, and to long-dead, captured, or crippled allies, who will appear at the peak of their capabilities.</p>
+							<p>Growth comes to your allies much more easily and effectively; this is not limited to something as simple as more power or new powers, but warps events around them to provide beneficial character development. This growth is guided, such that by the time any situation arises, you will find that you have allies who are almost perfectly suited to handle it.</p>
+							<p>No matter the gulf in raw power that may exist between your allies and the situations you strive to handle, they will always be, at minimum, helpful.</p>
+							<p>Situations this ability applies to may include personal combat, mass battle, crafting projects, disaster relief, research projects, diplomatic meetings, surgical procedures, and so on. This effect may activate even for situations you never personally encounter, or learn of, so long as any ally of yours could reasonably become present and you would want it handled by them.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(57, 'growth', this)">
+							<p class="smolTitle">Chekhov</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".jif" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_57" class="smolTitle"></p>
+							<p>You have a sense for what people, creatures, items, and information will be important, relevant, useful, or dangerous in the near future. This sense is excellent at determining relative significance, but imperfect at discerning whether something not absolutely vital or deadly will be good or bad. Regardless of your choices and actions, you will never encounter a red herring; what information it provides you with will always be accurate.</p>
+							<p>You will stumble across such important things more regularly, though not in any way that puts you in more danger. It could be that you happen to pass a serial killer on the street three days before they end up trying to kill someone you care about, allowing you to look into them.</p>
+							<p>You gain a lesser, wholly seperate sense for the uniqueness of anything you encounter, sufficient to tell at a glance if a book is someone's journal or if it would be possible to find another copy of that extraordinarilly useful potion you stumbled across. Given some work, you may put this sense to greater use in locating unique things, such as by applying it through a divination array to determine the locations of the missing parts of an ancient datacore you found. This becomes harder the larger the 'set' of similar things you are searching for is, and generally requires at least one item from the set to begin.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(58, 'growth', this)">
+							<p class="smolTitle">Guiding Light</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".ppg" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_58" class="smolTitle"></p>
+							<p>You have constant access to high-quality guidance, ranging in nature from subtle urges to a voice in your head in accordance with your current wishes. It will help you find the best route to victory, and avoid the worst options. This guidance is as the best version of you would provide, coming from a semi-realized aspect of your own innate potential rather than any external source.</p>
+							<p>Over time, as you make use of it, it will teach you to see every possible choice and understand the consequences of them all, and, if you work for it, to become a better version of yourself; not gathering power but naturally acquiring wisdom or making other essential, personal improvements. If you ever begin to simply rely on this guidance to make every decision for you, it will reduce the amount of help it offers to whatever degree is necessary to maintain both your safety and your ability to act independently.</p>
+							<p>Beyond simple good decision making skills, the guidance engine is capable of generating coincidences and pulling information from nowhere. Should it be necessary for the choice you ultimately decide upon, fate can be manipulated to put pieces into place days or weeks before the decision is made. Perhaps it so happens that four days before you realize you need to break into a facility, you help a random stranger out of an accident, earning a favor from what turns out to be one of the guards. Even when they are impossible to glean through normal means, the consequences of your potential decisions are much clearer. If setting a paint can on a specific shelf will likely cause it to fall on a monster when it pursues you later, stunning and slowing it, you will be able to recognize that doing so will benefit your odds of near-future survival.</p>
+							<p>As you learn from this guidance, you will become much more capable of wielding the powers tied to it directly, and they will slowly grow more powerful and effective.</p>
+						</div>
+					</td>
+					<td style="vertical-align: top; width: 30%; padding: 15px 10px 10px 0">
+						<div style="width: 95%;" class="stdDiv" onClick="pick(59, 'growth', this)">
+							<p class="smolTitle">Criticality</p>
+							<hr></hr>
+							<img src="images/placeholder_5.png" alt=".pan" style="display: block; margin-left: auto; margin-right: auto">
+							<hr></hr>
+							<p id="lblGrowInfo_59" class="smolTitle"></p>
+							<p>You, and everyone you would consider an ally, benefit from a significant luck-based advantage in all things. With a very basic understanding of a skill, you could match a trained professional every time through remarkably consistent beginner's luck. As your actual capabilities grow, the benefits of this luck similarly swell to provide a similar proportionate advantage. A similar luck-based disadvantage is applied to everything attempted by someone you would consider an enemy. The degree to which constant misfortune hampers them and reduces their performance similarly scales with their power.</p>
+							<p>Though the effect of this power will never fall below this baseline level, it has a small chance each time it activates to apply a significantly greater effect. Each time the effect is amplified, there is another small chance it is amplified again; there is no limit to this save improbability (no luck or fate manipulating effect can increase the odds of amplification). Though extremely, incredibly small, there is a chance a young peasant boy who dreams of fighting alongside you can throw a pebble at the dark knight laying waste to his village and see it pass through armor, skull, and brainmeats alike. There is no range limit to this power.</p>
+						</div>
+					</td>
+				</tr>
 			</table>
 		</div>
 		
@@ -828,7 +992,7 @@
 	<div id="adventureStage" class="column middle" style="display: none">
 		<div id="Trials">
 			<table style="width:100%;" align="left">
-				<tr id="adventureOne" style="display: none">
+				<tr id="adventure_0" style="display: none">
 					<td style="vertical-align: top; width: 30%">
 						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(0)">
 							<p class="smolTitle">Adventure One</p>
@@ -840,7 +1004,7 @@
 						</div>
 					</td>
 				</tr>
-				<tr id="adventureTwo" style="display: none">
+				<tr id="adventure_1" style="display: none">
 					<td style="vertical-align: top; width: 30%">
 						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(1)">
 							<p class="smolTitle">Adventure Two</p>
@@ -852,7 +1016,7 @@
 						</div>
 					</td>
 				</tr>
-				<tr id="adventureThree" style="display: none">
+				<tr id="adventure_2" style="display: none">
 					<td style="vertical-align: top; width: 30%">
 						<div style="width: 95%;" class="stdDiv" onClick="endAdventure(2)">
 							<p class="smolTitle">Adventure Three</p>
@@ -877,6 +1041,9 @@
 									<button class="calcButton" onClick="modVictory(1)">Guarantee Victory</button>
 									<button class="calcButton" onClick="modVictory(2)">Normal Chances</button>
 									<button class="calcButton" onClick="modVictory(3)">Guarantee Defeat</button>
+								</tr>
+								<tr>
+									<button class="calcButton" onClick="revealAdventures()">Reveal Adventures</button>
 								</tr>
 								<br>
 							</table>

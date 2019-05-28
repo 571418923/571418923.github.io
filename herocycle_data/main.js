@@ -3,10 +3,10 @@
 var temp;
 
 var growthPoints = 5;
-var arrGrowthSelections = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
-var arrGrowthPrices = [7, 9, 10, 3, 9,   9, 2, 2, 6, 10,   6, 10, 3, 7, 6,   3, 8, 6, 6, 2,   6, 3, 7, 5, 2,   7, 6, 3, 6, 5,   5, 9, 5, 3, 10,   10, 2, 6, 6, 5,   6, 3, 4, 5, 5,   6, 10, 10];
-var arrGrowthPrereq = [-1, 0, 1, -1, 3,   3, -1, 6, 6, 8,   6, 10, -1, 12, 12,   -1, 15, 15, 15, -1,   -1, -1, 21, 21, -1,   24, 24, -1, 27, 27,   -1, 30, -1, -1, 33,   33, -1, 36, 36, -1,   39, -1, 41, 41, 41,   -1, 45, 45]; // Location in arrGrowthSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
-var arrGrowthName = ["Fast", "Faster", "Fastest", "Telekinetic Shroud", "Kinesis X",   "Kinesis Y", "Heroic Form", "Immortal", "Unbroken", "Unbreakable",   "Mighty", "Herculean", "White Magic", "Deathbreaker", "Cursebreaker",   "Elementalism", "Elemental Forge", "Elemental Transmutation", "Narrow Paths", "Baleful Glow",   "Ritualism", "Aetherflux", "Flux Memory", "Flux Storm", "Necessary Talent",   "Necessary Ability", "Necessary Knowledge", "Box of Scraps", "Submaterial Refinement", "Always Prepared",   "Painless Augmentation", "Unbound Alteration", "Mass Proliferation", "Extended Tree", "Deep Extraction",   "Unreality Synthesis", "Endless Riches", "Ancient Armory", "Relic Vault", "Band of Friends",   "League of Heroes", "Ruler", "Political Consolidation", "Economic Update", "Expansion Plans",   "Spirit Seed", "Investment", "Divine Plan"]
+var arrGrowthSelections = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
+var arrGrowthPrices = [7, 9, 10, 3, 9,   9, 2, 2, 6, 10,   6, 10, 3, 7, 6,   3, 8, 6, 6, 2,   6, 3, 7, 5, 2,   7, 6, 3, 6, 5,   5, 9, 5, 3, 10,   10, 2, 6, 6, 5,   6, 3, 4, 5, 5,   6, 10, 10, 3, 7,   5, 2, 5, 6, 9,   10, 10, 2, 5, 7];
+var arrGrowthPrereq = [-1, 0, 1, -1, 3,   3, -1, 6, 6, 8,   6, 10, -1, 12, 12,   -1, 15, 15, 15, -1,   -1, -1, 21, 21, -1,   24, 24, -1, 27, 27,   -1, 30, -1, -1, 33,   33, -1, 36, 36, -1,   39, -1, 41, 41, 41,   -1, 45, 45, -1, 48,   -1, -1, 51, 51, 51,   54, 54, -1, 57, -1]; // Location in arrGrowthSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrGrowthName = ["Fast", "Faster", "Fastest", "Telekinetic Shroud", "Kinesis X",   "Kinesis Y", "Heroic Form", "Immortal", "Unbroken", "Unbreakable",   "Mighty", "Herculean", "White Magic", "Deathbreaker", "Cursebreaker",   "Elementalism", "Elemental Forge", "Elemental Transmutation", "Narrow Paths", "Baleful Glow",   "Ritualism", "Aetherflux", "Flux Memory", "Flux Storm", "Necessary Talent",   "Necessary Ability", "Necessary Knowledge", "Box of Scraps", "Submaterial Refinement", "Always Prepared",   "Painless Augmentation", "Unbound Alteration", "Mass Proliferation", "Extended Tree", "Deep Extraction",   "Unreality Synthesis", "Endless Riches", "Ancient Armory", "Relic Vault", "Band of Friends",   "League of Heroes", "Ruler", "Political Consolidation", "Economic Update", "Expansion Plans",   "Spirit Seed", "Investment", "Divine Plan", "Wanted Alive", "Inevitable Escape",   "Datashift", "A Chance", "Everyone Lives", "Soft Counter", "Ray of Hope",   "Darkest Hour", "True Heroes", "Chekhov", "Guiding Light", "Criticality"]
 
 var changePoints = 3;
 var arrChangeSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
@@ -26,11 +26,11 @@ var arrChoiceCards = [];
 
 var victoryStat = 0;
 
-var arrMight = 		[2, 2, 2, 1, 2,   2, 1, 1, 2, 2,   2, 2, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 1, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0];
-var arrMagic = 		[0, 1, 1, 0, 1,   0, 0, 0, 0, 0,   0, 1, 1, 1, 1,   1, 1, 1, 2, 1,   1, 1, 2, 1, 0,   1, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1, 0, 0, 1, 0,   0, 0, 0, 0, 0,   0, 0, 1];
-var arrArtifice = 	[0, 0, 0, 0, 0,   1, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 1, 1, 0, 0,   1, 0, 0, 0, 1,   1, 1, 1, 2, 1,   1, 2, 1, 1, 2,   2, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 1, 0];
-var arrAllies = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 1,   0, 1, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1, 1, 1, 0, 0,   0, 1, 1, 1, 2,   2, 1, 1, 2, 2,   2, 2, 2];
-var arrFortune = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 0,   0, 1, 0, 0, 1,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0];
+var arrMight = 		[2, 2, 2, 1, 2,   2, 1, 1, 2, 2,   2, 2, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 1, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1, 0, 0, 0, 0];
+var arrMagic = 		[0, 1, 1, 0, 1,   0, 0, 0, 0, 0,   0, 1, 1, 1, 1,   1, 1, 1, 2, 1,   1, 1, 2, 1, 0,   1, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1, 0, 0, 1, 0,   0, 0, 0, 0, 0,   0, 0, 1, 0, 0,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0];
+var arrArtifice = 	[0, 0, 0, 0, 0,   1, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 1, 1, 0, 0,   1, 0, 0, 0, 1,   1, 1, 1, 2, 1,   1, 2, 1, 1, 2,   2, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 1, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0];
+var arrAllies = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 1,   0, 1, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   1, 1, 1, 0, 0,   0, 1, 1, 1, 2,   2, 1, 1, 2, 2,   2, 2, 2, 0, 0,   0, 0, 1, 0, 0,   0, 1, 0, 0, 1];
+var arrFortune = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 0,   0, 1, 0, 0, 1,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 1, 2,   2, 1, 1, 2, 2,   2, 2, 1, 2, 1];
 
 
 
@@ -334,7 +334,7 @@ function beginAdventure()
 			if (arrGrowthSelections[i] == 1)
 			{
 				arrGrowthSelections[i] = 2;
-				extendReport("Growth option " + arrGrowthName[i] + " successfully purchased for " + arrGrowthPrices[i] + " Growth points.");
+				extendReport("Growth: " + arrGrowthName[i] + " purchased for " + arrGrowthPrices[i] + " Growth points.");
 			}
 		}
 		for (var i = 0; i < arrChangeSelections.length; i++) // Turns growth selections into locked in
@@ -342,7 +342,7 @@ function beginAdventure()
 			if (arrChangeSelections[i] == 1)
 			{
 				arrChangeSelections[i] = 2;
-				extendReport("Change option " + arrChangeName[i] + " successfully purchased for " + arrChangePrices[i] + " Change points.");
+				extendReport("Change: " + arrChangeName[i] + " purchased for " + arrChangePrices[i] + " Change points.");
 			}
 		}
 		for (var i = 0; i < arrDamageSelections.length; i++) // Turns growth selections into locked in
@@ -350,7 +350,7 @@ function beginAdventure()
 			if (arrDamageSelections[i] == 1)
 			{
 				arrDamageSelections[i] = 2;
-				extendReport("Damage option " + arrDamageName[i] + " successfully purchased for " + arrDamagePrices[i] + " Damage points.");
+				extendReport("Damage: " + arrDamageName[i] + " purchased for " + arrDamagePrices[i] + " Damage points.");
 			}
 		}
 		
@@ -390,14 +390,12 @@ function beginAdventure()
 		// Showing Adventure stage choices/hiding ones that shouldn't be seen
 		document.getElementById("adventureStage").style.display = "block";
 		
-		if (arrAdventureOptions[0] == 1) { document.getElementById("adventureOne").style.display = "block"; }
-		else { document.getElementById("adventureOne").style.display = "none"; }
-		
-		if (arrAdventureOptions[1] == 1) { document.getElementById("adventureTwo").style.display = "block"; }
-		else { document.getElementById("adventureTwo").style.display = "none"; }
-		
-		if (arrAdventureOptions[2] == 1) { document.getElementById("adventureThree").style.display = "block"; }
-		else { document.getElementById("adventureThree").style.display = "none"; }
+		for (var i = 0; i < arrAdventureOptions.length; i++)
+		{
+			var label = document.getElementById(String('adventure_' + i));
+			if (arrAdventureOptions[i] == 1) { label.style.display = "block"; }
+			else { label.style.display = "none"; }
+		}
 	}
 	update();
 }
@@ -407,11 +405,18 @@ function endAdventure(adventure) // "adventure" is number indicating which trial
 {
 	// Check adventure success
 	var modifier = getModifier(adventure);
+	var roll = (Math.floor(Math.random() * 20 + 1))
 	
-	if ((modifier + (Math.floor(Math.random() * 20 + 1))) >= arrAdventureDifficulty[adventure])
+	if ((modifier + roll) >= arrAdventureDifficulty[adventure])
+	{
 		var victory = true;
+		extendReport(String("Adventure: Your roll of " + roll + ", with it's modifier of " + modifier + ", met the difficulty of " + arrAdventureDifficulty[adventure]));
+	}
 	else
+	{
 		var victory = false;
+		extendReport(String("Adventure: Your roll of " + roll + ", with it's modifier of " + modifier + ", did not meet the difficulty of " + arrAdventureDifficulty[adventure]));
+	}
 	
 	
 	// Give different amounts of points based on victory/defeat
@@ -438,13 +443,14 @@ function endAdventure(adventure) // "adventure" is number indicating which trial
 	document.getElementById("planningStage").style.display = "block";
 	document.getElementById("tabButtons").style.display = "block";
 	
-	// Add something to the Info page explaining your victory/defeat
-	setTab("Info");
+	// Add something to the Report page explaining your victory/defeat
+	setTab("Report");
 	if (victory == true)
-		extendReport(String("Victory against adventure number " + adventure + " was successfully achieved! " + growthPoints + "/" + changePoints + "/" + damagePoints + " points attained!"));
+		extendReport(String("Adventure: Victory against adventure number " + adventure + " was achieved. " + growthPoints + "/" + changePoints + "/" + damagePoints + " points were awarded."));
 	if (victory == false)
-		extendReport(String("Adventure number " + adventure + " bested you! " + growthPoints + "/" + changePoints + "/" + damagePoints + " points attained!"));
-
+		extendReport(String("Adventure: Defeated by adventure number " + adventure + ". " + growthPoints + "/" + changePoints + "/" + damagePoints + " points were awarded."));
+	extendReport("---");
+	
 	// Check if you meet endgame conditions, runs through every stat
 	if (getStat('lewd') >= 10)
 		endGame('lewd');
@@ -485,7 +491,7 @@ function extendReport(text)
 // We're in the endgame now
 function endGame(avenge)
 {
-	extendReport("Game finished. The " + avenge + " ending has been achieved.");
+	extendReport("Info: Game finished. The " + avenge + " ending has been achieved.");
 	
 	setTab('Ending');
 		
@@ -507,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() { initiate(); }, false)
 function initiate()
 {
 	update();
-	extendReport("It begins.");
+	extendReport("Info: The game begins.");
 	
 	for (var i = 0; i < arrGrowthSelections.length; i++) // Growth option info
 	{
@@ -546,7 +552,7 @@ function initiate()
 	}
 }
 
-// Debug stuff
+// Debug: adjust points
 function modPoints(type, effect)
 {
 	switch(effect)
@@ -610,7 +616,7 @@ function toggleSpoiler(id)
 		label.style.display = "none";
 }
 
-// Adjusts Victory stat
+// Debug: Adjusts Victory stat
 function modVictory(n)
 {
 	if (n == 1)
@@ -627,6 +633,16 @@ function modVictory(n)
 			label.innerHTML = "Success Chance: " + Math.min((Math.floor(20 - arrAdventureDifficulty[i] + getModifier(i)) * 5), 100) + "%   Victory Rewards: " + arrAdventureVictoryPoints[i][0] + "/" + arrAdventureVictoryPoints[i][1] + "/" + arrAdventureVictoryPoints[i][2] + "   Failure Effects: " + arrAdventureLossPoints[i][0] + "/" + arrAdventureLossPoints[i][1] + "/" + arrAdventureLossPoints[i][2];
 		else
 			label.innerHTML = "Success Chance: " + Math.max((Math.floor(20 - arrAdventureDifficulty[i] + getModifier(i)) * 5), 0) + "%   Victory Rewards: " + arrAdventureVictoryPoints[i][0] + "/" + arrAdventureVictoryPoints[i][1] + "/" + arrAdventureVictoryPoints[i][2] + "   Failure Effects: " + arrAdventureLossPoints[i][0] + "/" + arrAdventureLossPoints[i][1] + "/" + arrAdventureLossPoints[i][2];
+	}
+}
+
+// Debug: Shows all possible adventures
+function revealAdventures()
+{
+	for (var i = 0; i < arrAdventureOptions.length; i++)
+	{
+		var label = document.getElementById(String('adventure_' + i));
+		label.style.display = "block";
 	}
 }
 
