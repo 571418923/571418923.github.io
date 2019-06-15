@@ -9,10 +9,10 @@ var arrGrowthPrereq = [-1, 0, 1, -1, 3,   3, -1, 6, 6, 8,   6, 10, -1, 12, 12,  
 var arrGrowthName = ["Fast", "Faster", "Fastest", "Telekinetic Shroud", "Kinesis X",   "Kinesis Y", "Heroic Form", "Immortal", "Unbroken", "Unbreakable",   "Mighty", "Herculean", "White Magic", "Deathbreaker", "Cursebreaker",   "Elementalism", "Elemental Forge", "Elemental Transmutation", "Narrow Paths", "Baleful Glow",   "Ritualism", "Aetherflux", "Flux Memory", "Flux Storm", "Necessary Talent",   "Necessary Ability", "Necessary Knowledge", "Box of Scraps", "Submaterial Refinement", "Always Prepared",   "Painless Augmentation", "Unbound Alteration", "Mass Proliferation", "Extended Tree", "Deep Extraction",   "Unreality Synthesis", "Endless Riches", "Ancient Armory", "Relic Vault", "Band of Friends",   "League of Heroes", "Ruler", "Political Consolidation", "Economic Update", "Expansion Plans",   "Spirit Seed", "Investment", "Divine Plan", "Wanted Alive", "Inevitable Escape",   "Datashift", "A Chance", "Everyone Lives", "Soft Counter", "Ray of Hope",   "Darkest Hour", "True Heroes", "Chekhov", "Guiding Light", "Criticality"]
 
 var changePoints = 3;
-var arrChangeSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
-var arrChangePrices = [1, 2, 3];
-var arrChangePrereq = [-1, -1, -1]; // Location in arrChangeSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
-var arrChangeName = ["ChOne", "ChTwo", "ChThree"];
+var arrChangeSelections = [0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0,   0, 0, 0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
+var arrChangePrices = [1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1,   1, 1, 1, 1, 1];
+var arrChangePrereq = [-1, 0, -1, -1, -1,   -1, -1, -1, -1, -1,   9, -1, -1, -1, -1,   -1, -1, -1, -1, -1,   -1, -1, -1, -1, -1,   -1, 25, -1, -1, -1,   -1, 30, 31, -1, 33,   -1, -1, -1, -1, -1,   39, -1, -1, -1, -1]; // Location in arrChangeSelections array of prereq; must have prereq locked in to take this. -1 means no prereq.
+var arrChangeName = ["Petty Aura of Death", "Lesser Aura of Death", "Aura of Cleansing", "Ekksbaen", "False Void",   "Poisonous", "Orchestrated", "Bit of Flair", "Touch of Chosinspry", "Bloody Harvest",   "Bloody Synthesis", "Partnership", "Signature Style", "Entitlement", "Aftshadow",   "Withdrawn", "Damage Dispersion", "Self-Assessment", "Honesty", "Understanding",   "Freedom", "Bloodthirst", "Motive Flux", "Fateful Exchange", "Semifertility",   "Perfected Digestion", "Metabolic Shift", "Move Speed", "Natural Habitat", "New Light",   "Basic Rescale", "Extreme Rescale", "Ridiculous Rescale", "Skin Shift", "Unusual Skin",   "Decorative", "Reshaped", "Timelock", "Acquired Instability", "Relimb",   "Destructure", "Recomposed", "Good Touch", "Outflow", "Bounty"];
 
 var damagePoints = 1;
 var arrDamageSelections = [0, 0, 0]; // 0 = unselected, 1 = selected, 2 = locked in
@@ -36,6 +36,7 @@ var arrFortune = 	[0, 0, 0, 0, 0,   0, 0, 0, 0, 1,   0, 0, 0, 0, 0,   0, 0, 0, 0
 
 var arrAdventureOptions = [1, 0, 1]; // 0 = unshown/not option, 1 = shown/option, 2 = already used
 
+// Maybe replace these with two things: one goes 'what one positive stat is significant', other goes 'what one negative stat is significant'
 var arrAdventureLewd = [0, 0, 1]; // yes/no is the Lewd stat significant
 var arrAdventureMight = [1, 0, 1]; // yes/no is the Might stat significant
 
@@ -396,6 +397,14 @@ function beginAdventure()
 			if (arrAdventureOptions[i] == 1) { label.style.display = "block"; }
 			else { label.style.display = "none"; }
 		}
+		
+		// Check if you meet endgame conditions, runs through every stat
+		// Arguably a waste to do it after setting up the adventure stuff, but eh, better than risking the ending being overridden by adventures
+		if (getStat('lewd') >= 10)
+			endGame('lewd');
+		if (getStat('might') >= 10)
+			endGame('might');
+
 	}
 	update();
 }
@@ -450,12 +459,6 @@ function endAdventure(adventure) // "adventure" is number indicating which trial
 	if (victory == false)
 		extendReport(String("Adventure: Defeated by adventure number " + adventure + ". " + growthPoints + "/" + changePoints + "/" + damagePoints + " points were awarded."));
 	extendReport("---");
-	
-	// Check if you meet endgame conditions, runs through every stat
-	if (getStat('lewd') >= 10)
-		endGame('lewd');
-	if (getStat('might') >= 10)
-		endGame('might');
 }
 
 // Get difficulty modifier for an adventure
